@@ -40,7 +40,7 @@ export default function Header() {
                         return <Link className={`${currentPath == link.path && "text-accent border-b-accent border-b-2"} hover:text-accent transition-all duration-300 capitalize`}  key={i} href={link.path}>{link.name}</Link>;
                     })}
                 </nav>
-                <Button className="semibold bg-accent text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
+                <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
             </div>
             <HiMenuAlt4 className="text-4xl cursor-pointer xl:hidden"/>
         </header>

@@ -1,5 +1,6 @@
 import Socials from "@/components/socials";
 import Stats from "@/components/stats";
+import { TextGenerateEffectDemo } from "@/components/ui/heading";
 import Image from "next/image";
 
 
@@ -14,6 +15,7 @@ export default function Home() {
                 <div>
                     <span className="text-center xl:text-left pb-1 block text-lg lg:text-xl xl:text-3xl xl:pb-4">Front-end React Developer</span>
                     <h1 className="md:leading-tight md:text-4xl xl:leading-tight text-3xl lg:text-5x xl:text-6xl font-bold text-center xl:text-left pb-4">Hello I&apos;m <br />Abdullah Al Sayef</h1>
+                    <TextGenerateEffectDemo />
                     <p className="xl:w-[54ch] text-sm md:text-md text-center xl:text-left pb-8 lg:text-lg xl:pb-8">I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.</p>
                     <Socials />
                 </div>

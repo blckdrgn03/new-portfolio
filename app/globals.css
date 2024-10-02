@@ -7,3 +7,11 @@
     @apply font-primary;
   }
 }
+
+@layer utilities {
+  /* Custom utility to hide scrollbar buttons */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+}

@@ -1,8 +1,21 @@
+'use client'
+
 import { Project } from "./ui/3d-project";
+import { useRef, useState } from 'react';
 
 
 
 export default function Projects() {
+    const scrollContainer = useRef(null);
+    const [isHovered, setIsHovered] = useState(false);
+
+  const handleScroll = (event) => {
+    // Only apply horizontal scrolling when the div is hovered
+    if (isHovered) {
+      event.preventDefault();
+      scrollContainer.current.scrollLeft += event.deltaY;
+    }
+  };
     let projects = [
         {
             name: 'calculator',
@@ -53,10 +66,12 @@ export default function Projects() {
     ]
     return (
         <section id="projects" className="container mb-12 mx-auto mt-[5rem] md:mt-[7.5rem] lg:mt-[10rem] xl:mt-[12.5rem]">
-            <h1 className="md:text-4xl text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Projects</h1>
+            <h1 className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Projects</h1>
             <p className="text-sm md:text-md lg:text-lg text-center xl:text-left">I’ve built various frontend projects using React, Next.js, and Tailwind CSS, focusing on clean, responsive designs and functionality. Below are some of my recent works, showcasing my skills in creating intuitive and dynamic user experiences.</p>
 
-            <div className="flex gap-8 px-4 py-6 overflow-x-scroll scrollbar-thumb-accent scrollbar-track-transparent scrollbar-thin scrollbar-thumb-rounded snap-x snap-mandatory xl:py-10 xl:gap-10">
+            <div ref={scrollContainer}
+      onWheel={handleScroll}  onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)} className="flex flex-row-reverse py-6 overflow-x-scroll scrollbar-thumb-accent scrollbar-track-transparent scrollbar-thin scrollbar-thumb-rounded scroll-snap-x scroll-snap-mandatory xl:py-10">
                 {projects.map(project => {
                     return <Project key={project.id} project={project}/>;
                 })}

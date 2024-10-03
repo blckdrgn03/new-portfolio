@@ -5,18 +5,18 @@ import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 export function Project({ project }) {
   return (
-    (<CardContainer className="inter-var snap-start">
+    (<CardContainer className="inter-var scroll-snap-start">
       <CardBody
-        className="border-2  relative group/card hover:shadow-2xl hover:shadow-accent/[0.1] w-[22rem] md:w-[25rem] lg:w-[30rem] h-auto rounded-xl p-6 border">
+        className="bg-[#131820] mx-5 relative group/card hover:shadow-2xl hover:shadow-accent/[0.3] w-[20rem] md:w-[25rem] lg:w-[30rem] h-auto rounded-xl p-6">
         <CardItem
           translateZ="60"
-          className="text-xl md:text-2xl lg:text-3xl font-bold text-white capitalize">
+          className="text-xl md:text-2xl text-white lg:text-3xl font-bold text-white capitalize">
           {project.name}
         </CardItem>
         <CardItem
           as="p"
           translateZ="50"
-          className="text-xs md:text-sm lg:text-md max-w-sm mt-2 lg:mt-4 xl:mt-8 text-neutral-300">
+          className="text-xs md:text-sm lg:text-md max-w-sm mt-2 lg:mt-4 xl:mt-8 text-slate">
           {project.description}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
@@ -24,13 +24,13 @@ export function Project({ project }) {
             src={project.image}
             height="1000"
             width="1000"
-            className="w-full aspect-[4/3] object-cover rounded-xl group-hover/card:shadow-xl"
+            className="w-full aspect-[4/3] object-cover rounded-xl group-hover/card:shadow-2xl"
             alt="thumbnail" />
         </CardItem>
         
           <div className="flex justify-end pt-4">
             <CardItem
-          translateZ={30}
+          translateZ={20}
           className="flex gap-2"
         >
             {project.techs.map((tech , index)=> {
@@ -49,7 +49,7 @@ export function Project({ project }) {
         
         <div className="flex justify-between items-center mt-8 md:mt-12">
           <CardItem
-            translateZ={40}
+            translateZ={30}
             as="a"
             href={project.code}
             target="__blank"
@@ -57,7 +57,8 @@ export function Project({ project }) {
             Source code →
           </CardItem>
           <CardItem
-            translateZ={40}
+            target="__blank"
+            translateZ={30}
             as="a"
             href={project.url}
             className="px-4 md:text-sm lg:text-md py-2 rounded-full hover:bg-accent-hover bg-accent text-primary text-xs font-bold">

@@ -12,7 +12,7 @@ export default function Home() {
                 </div>
                 <div>
                     <span className="text-center xl:text-left pb-1 block text-lg lg:text-xl xl:text-3xl xl:pb-4">Front-end React Developer</span>
-                    <h1 className="md:leading-tight md:text-4xl xl:leading-tight text-3xl lg:text-5xl xl:text-6xl font-bold text-center xl:text-left">Hello I&apos;m</h1>
+                    <h1 className="md:leading-tight md:text-4xl xl:leading-tight text-3xl lg:text-5xl xl:text-6xl font-bold text-center xl:text-left text-white">Hello I&apos;m</h1>
                     <TextGenerateEffectDemo />
                     <p className="xl:w-[54ch] text-sm md:text-md lg:text-lg text-center xl:text-left pb-8 xl:pb-8">I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.</p>
                     <Socials />

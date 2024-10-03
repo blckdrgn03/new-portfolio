@@ -57,12 +57,12 @@ export default function RealProjects() {
     const { scrollYProgress } = useScroll({
         target: targetRef,
     });
-    const x = useTransform(scrollYProgress, [0, 1], ["4%", "-100%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["4%", "-50%"]);
 
     return (
-        <div ref={targetRef} className="relative h-[700vh]">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex flex-row-reverse gap-6 my-4">
+        <div ref={targetRef} className="relative h-[400vh]">
+            <div className="sticky top-0 flex h-screen items-center overflow-hidden my-12">
+                <motion.div style={{ x }} className="flex flex-row-reverse gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;
                     })}

@@ -21,7 +21,7 @@ export default function Header() {
    
     return (
         <header className="my-4 mx-auto text-white py-4 rounded-full xl:my-9 xl:py-3 container flex items-center justify-end md:justify-between">
-            <a className="group font-bold hidden md:block capitalize text-4xl" href="#home"><h1>sayef<span className={`${currentPath == '/' && "text-accent"} group-hover:text-accent transition-all`}>.</span></h1></a>
+            <a className="group font-bold hidden md:block capitalize text-4xl" href="#home"><h1>sayef</h1></a>
             <div className="hidden xl:flex gap-8">
                 <nav className="flex justify-center gap-8 items-center">
                     {links.map((link, i) => {

@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Home() {
     return (
         <>
-            <section id="home" className="container pt-[8.5rem]">
+            <section id="home" className="container pt-[7rem] md:pt-[8.5rem]">
                 <div className=" flex flex-col items-center xl:flex-row-reverse justify-between mx-auto">
                     <div className="relative rounded-full overflow-hidden xl:pb-0 h-[250px] w-[250px] md:h-[275px] md:w-[275px] md:h-[300px] md:w-[300px] xl:h-[475px] xl:w-[475px] mb-8">
                         <Image className="object-cover absolute" alt="Sayef" fill quality={100} src="/pic.png"/>

@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <footer className="pb-1 text-center text-xs pointer-events-none select-none pt-10 lg:pt-16 xl:pt-20">~ABDULLAH AL SAYEF~</footer>
         <div className="-z-30 fixed top-0 h-screen left-0 w-screen">
             <ShootingStars starColor="#22b7f7" trailColor="#22b7f7" className=""/>
         </div>

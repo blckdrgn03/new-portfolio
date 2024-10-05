@@ -17,7 +17,7 @@ export default function RealProjects() {
         },
         {
             name: 'Login-Register',
-            description: 'A responsive authentication system with form validation for user sign-up and login.',
+            description: 'A authentication system with form validation for user sign-up and login.',
             id: 2,
             image: '/login.png',
             techs: ['/html.svg', '/css.svg', '/javascript.svg'],
@@ -57,11 +57,11 @@ export default function RealProjects() {
     const { scrollYProgress } = useScroll({
         target: targetRef,
     });
-    const x = useTransform(scrollYProgress, [0, 1], ["4%", "-50%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["4%", "-80%"]);
 
     return (
         <div ref={targetRef} className="relative h-[400vh]">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden my-12">
+            <div className="sticky top-0 flex h-screen items-stretch overflow-hidden my-12">
                 <motion.div style={{ x }} className="flex flex-row-reverse gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;

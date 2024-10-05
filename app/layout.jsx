@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <div className="-z-30 fixed top-0 h-screen left-0 w-screen">
-            <ShootingStars starColor="#22b7f7" trailColor="#22b7f7" minSpeed={20} maxSpeed={30} minDelay={1000} maxDelay={5000} starWidth={30} className=""/>
+            <ShootingStars starColor="#22b7f7" trailColor="#22b7f7" className=""/>
         </div>
         
       </body>

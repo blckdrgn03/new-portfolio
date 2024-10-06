@@ -85,7 +85,7 @@ export default function Contact() {
                                 <TooltipTrigger asChild>
                                     <IoMdMail
                                         onClick={() => CopyToClipboard("abdullahalsayef17@gmail.com")}
-                                        className="bg-[#171d26] text-accent hover:bg-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-16 w-16 xl:h-20 xl:w-20 xl:p-4"
+                                        className="bg-[#171d26] text-accent hover:bg-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-16 w-16 xl:h-18 xl:w-18 xl:p-4"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -111,7 +111,7 @@ export default function Contact() {
                                 <TooltipTrigger asChild>
                                     <FaPhoneAlt
                                         onClick={() => CopyToClipboard("+880 13056 38260")}
-                                        className="bg-[#171d26] cursor-pointer active:bg-[#171d26] active:text-accent text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-4 transition-all transition-500 h-16 w-16 xl:h-20 xl:w-20 xl:p-5"
+                                        className="bg-[#171d26] cursor-pointer active:bg-[#171d26] active:text-accent text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-4 transition-all transition-500 h-16 w-16 xl:h-18 xl:w-18 xl:p-5"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -136,7 +136,7 @@ export default function Contact() {
                                 <TooltipTrigger asChild>
                                     <FaLocationDot
                                         onClick={() => CopyToClipboard("Bogura, Bangladesh")}
-                                        className="bg-[#171d26] text-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-16 w-16 xl:h-20 xl:w-20 xl:p-4"
+                                        className="bg-[#171d26] text-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-16 w-16 xl:h-18 xl:w-18 xl:p-4"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>

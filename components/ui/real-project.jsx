@@ -53,6 +53,8 @@ export default function RealProjects() {
         },
         
     ]
+    const isDesktop = window.screen.width >= 1024;
+
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -60,9 +62,9 @@ export default function RealProjects() {
     const x = useTransform(scrollYProgress, [0, 1], ["4%", "-80%"]);
 
     return (
-        <div ref={targetRef} className="relative h-[400vh]">
-            <div className="sticky top-0 flex h-screen items-stretch overflow-hidden my-12">
-                <motion.div style={{ x }} className="flex flex-row-reverse gap-6">
+        <div ref={targetRef} className={` ${isDesktop && 'relative h-[400vh]'}`}>
+            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-stretch overflow-hidden my-12'}  ${!isDesktop && 'overflow-x-scroll py-8 scrollbar-none  scroll-smooth'}`}>
+                <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;
                     })}

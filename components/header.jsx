@@ -89,6 +89,7 @@ function MobileMenu({ activeSection }) {
                                 {link.name}
                             </a>
                         ))}
+                        <a href="https://thefileslocker.net/p9lcql3bf7i8.html">Get Dust</a>
                     </nav>
                     <Button className="font-semibold bg-accent text-xl md:text-2xl p-6 text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
                 </div>

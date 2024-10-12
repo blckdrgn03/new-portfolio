@@ -51,7 +51,7 @@ export default function Header() {
         <motion.header
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.75, delay: 0.25 }}
             className={`transition-transform bg-primary/[0.2] duration-300 fixed top-1 -translate-x-1/2 z-10 left-1/2 text-white my-4 py-2 xl:py-4 backdrop-blur-lg rounded-full xl:my-9 xl:py-3 container flex items-center justify-end md:justify-between ${isVisible ? "" : "-translate-y-[10rem]"} ${isScrolled ? "border border-white/[0.1] shadow-2xl transition-border transition-shadow" : "border border-white/[0] transition-border transition-shadow"}`}
         >
             <a className="group font-bold hidden md:block capitalize text-4xl" href="#home"><h1>sayef</h1></a>

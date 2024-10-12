@@ -92,20 +92,31 @@ export const TypewriterEffectSmooth = ({
       text: word.text.split(""),
     };
   });
+  const RenderShits = ({char}) => {
+    return (
+      <span>
+                  {char}
+      </span>
+    )
+  }
+  const RenderMoreShits = ({shit}) => {
+    return (
+      <div className="inline-block">
+              {shit.text.map((char, index) => (
+                <RenderShits key={index} char={char} />
+              ))} 
+            </div>
+    )
+  }
   const renderWords = () => {
     return (
-      (<div>
+      (<div className="text-center text-slate xl:text-left pb-1 block text-lg lg:text-xl xl:text-3xl xl:pb-4">
         {wordsArray.map((word, idx) => {
           return (
-            (<div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
-                <span
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}>
-                  {char}
-                </span>
-              ))}
-            </div>)
+            (
+            <><RenderMoreShits key={idx} shit={word} />{" "}</>
+          )
+            
           );
         })}
       </div>)
@@ -113,9 +124,9 @@ export const TypewriterEffectSmooth = ({
   };
 
   return (
-    (<div className={cn("flex space-x-1 my-6", className)}>
+    (<div className={cn("flex justify-center xl:justify-start items-center", className)}>
       <motion.div
-        className="overflow-hidden pb-2"
+        className="overflow-hidden"
         initial={{
           width: "0%",
         }}
@@ -123,35 +134,19 @@ export const TypewriterEffectSmooth = ({
           width: "fit-content",
         }}
         transition={{
-          duration: 2,
+          duration: 1,
           ease: "linear",
-          delay: 5,
+          delay: 2,
         }}>
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          
           style={{
             whiteSpace: "nowrap",
           }}>
           {renderWords()}{" "}
         </div>{" "}
       </motion.div>
-      <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
-          cursorClassName
-        )}></motion.span>
+      
     </div>)
   );
 };

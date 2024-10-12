@@ -39,17 +39,17 @@ export default function Contact() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-20">
                 <form
                     action=""
-                    className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-6 py-10 aspect-[5/7] rounded-xl bg-[#171d26]"
+                    className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]"
                 >
                     <div>
-                        <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-2">
+                        <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-1 md:pb-2">
                             Let&apos;s work together!
                         </h2>
-                        <p className="text-sm md:text-md lg:text-lg pb-8">
+                        <p className="text-sm md:text-md lg:text-lg md:pb-8 pb-6">
                             Let me know how you feel.
                         </p>
 
-                        <div className="flex flex-col lg:text-lg gap-4 text-sm md:text-md">
+                        <div className="flex flex-col lg:text-lg gap-3 md:gap-4 text-sm md:text-md">
                             <input
                                 placeholder="First name"
                                 className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
@@ -70,7 +70,7 @@ export default function Contact() {
                                 name=""
                                 id=""
                                 placeholder="Write something here..."
-                                className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[10rem] resize-none"
+                                className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[7rem] md:h-[10rem] resize-none"
                             ></textarea>
                         </div>
                     </div>

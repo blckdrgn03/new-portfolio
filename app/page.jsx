@@ -12,7 +12,7 @@ export default function Page() {
         <motion.main
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.75, delay: 0.25 }}
         >
             <Home />
             <About />

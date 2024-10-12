@@ -1,3 +1,5 @@
+"use client"
+import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Socials from "@/components/ui/socials";
 import Stats from "@/components/ui/stats";
 import Image from "next/image";import { TextGenerateEffect } from "@/components/ui/text-generate-effect.jsx";
@@ -12,7 +14,7 @@ export default function Home() {
                         <Image className="object-cover absolute" alt="Sayef" fill quality={100} src="/pic.png"/>
                     </motion.div>
                     <div>
-                        <span className="text-center xl:text-left pb-1 block text-lg lg:text-xl xl:text-3xl xl:pb-4">Front-end React Developer</span>
+                        <TypewriterEffectSmooth className="text-center xl:text-left pb-1 block text-lg lg:text-xl xl:text-3xl xl:pb-4" words="Front-end Developer and UI/UX Designer" />
                         <h1 className="md:leading-tight md:text-4xl xl:leading-tight text-3xl lg:text-5xl xl:text-6xl font-bold text-center xl:text-left text-white">Hello I&apos;m</h1>
                         <TextGenerateEffect words="Abdullah Al Sayef" delay={2} />
                         <p className="xl:w-[54ch] text-sm md:text-md lg:text-lg text-center xl:text-left pb-8 xl:pb-8">I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.</p>

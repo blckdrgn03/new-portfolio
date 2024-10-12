@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Home from "@/components/home";
@@ -6,12 +9,16 @@ import Services from "@/components/services";
 
 export default function Page() {
     return (
-        <main>
+        <motion.main
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            transition={{ duration: 0.5, delay: 0.5 }}
+        >
             <Home />
             <About />
             <Services />
             <Projects />
             <Contact />
-        </main>
+        </motion.main>
     );
 }

@@ -1,9 +1,15 @@
 'use client'
-    import { motion, useTransform, useScroll } from "framer-motion";
-    import { useRef } from 'react';
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from 'react';
 import { Project } from "./3d-project";
 
 export default function RealProjects() {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        // Now it's safe to access `window`
+        setIsDesktop(window.screen.width >= 1024);
+    }, []); // Empty dependency array means this runs once on mount (client-side)
     
     let projects = [
         {
@@ -53,7 +59,6 @@ export default function RealProjects() {
         },
         
     ]
-    const isDesktop = window.screen.width >= 1024;
 
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({

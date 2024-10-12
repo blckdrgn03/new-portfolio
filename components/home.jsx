@@ -1,7 +1,7 @@
 "use client"
-import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
-import Socials from "@/components/ui/socials";
-import Stats from "@/components/ui/stats";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect.jsx";
+import Socials from "@/components/ui/socials.jsx";
+import Stats from "@/components/ui/stats.jsx";
 import Image from "next/image";import { TextGenerateEffect } from "@/components/ui/text-generate-effect.jsx";
 import { motion } from "framer-motion";
 

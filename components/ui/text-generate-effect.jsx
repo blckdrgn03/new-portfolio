@@ -20,13 +20,13 @@ export const TextGenerateEffect = ({
       filter: filter ? "blur(0px)" : "none",
     }, {
       duration: duration ? duration : 1,
-      delay: stagger(0.2, { start: delay }), // Using the passed delay here
+      delay: stagger(0.2), // Using the passed delay here
     });
   }, [scope.current, delay]); // Include delay in dependency array
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope}>
+      <motion.div transition={{delay: delay}} ref={scope}>
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}

@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-screen overflow-y-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-accent scrollbar-thumb-rounded scrollbar-track-transparent scroll-smooth">
+    <html lang="en" className="h-screen selection:bg-accent selection:text-primary selection:inline-block selection:rounded-[2px] overflow-y-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-accent scrollbar-thumb-rounded scrollbar-track-transparent scroll-smooth">
       <body
         className={`${jetbrainsMono.variable} antialiased bg-primary text-slate`}
       >

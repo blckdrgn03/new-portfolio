@@ -1,4 +1,4 @@
-"use client";
+"use client"; // This component should be a client component
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -11,26 +11,31 @@ export const TextGenerateEffect = ({
   delay = 0, // Accepting delay as a prop
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
-  
+  const wordsArray = words.split(" ");
+
   useEffect(() => {
     console.log("Animating words with delay:", delay);
+    // Animate with a combined delay
     animate("span", {
       opacity: 1,
       filter: filter ? "blur(0px)" : "none",
     }, {
-      duration: duration ? duration : 1,
-      delay: stagger(0.2), // Using the passed delay here
+      duration: duration,
+      delay: delay, // Initial delay before starting the animation
+      // Add stagger for each word
+      transition: {
+        delay: stagger(0.2, { start: delay }), // Stagger words with the initial delay
+      },
     });
-  }, [scope.current, delay]); // Include delay in dependency array
+  }, [scope.current, delay, animate, duration, filter]); // Include all dependencies
 
   const renderWords = () => {
     return (
-      <motion.div transition={{delay: delay}} ref={scope}>
+      <motion.div ref={scope}>
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}
-            className="opacity-0"
+            className="opacity-0" // Starts invisible
             style={{
               filter: filter ? "blur(10px)" : "none",
             }}

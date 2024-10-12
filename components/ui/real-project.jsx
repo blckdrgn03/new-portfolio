@@ -1,20 +1,19 @@
 'use client'
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Project } from "./3d-project";
 
 export default function RealProjects() {
     const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
-        // Now it's safe to access `window`
         setIsDesktop(window.screen.width >= 1024);
-    }, []); // Empty dependency array means this runs once on mount (client-side)
+    }, []);
     
     let projects = [
         {
             name: 'calculator',
-            description: 'A simple, user-friendly calculator with basic arithmetic operations.',
+            description: 'A simple, user-friendly and neon calculator with basic arithmetic operations.',
             id: 1,
             image: '/calc.png',
             techs: ['/html.svg', '/css.svg', '/javascript.svg'],
@@ -44,7 +43,7 @@ export default function RealProjects() {
             description: 'Displays current weather conditions and a 5-day forecast using real-time data.',
             id: 4,
             image: '/weather.png',
-            techs: ['/html.svg', '/css.svg', '/javascript.svg'],
+            techs: ['/html.svg', '/css.svg', '/javascript.svg', '/react.svg'],
             url: 'https://weather-by-sayef.vercel.app/',
             code: 'https://github.com/blckdrgn03/Weather'
         },
@@ -68,8 +67,8 @@ export default function RealProjects() {
 
     return (
         <div ref={targetRef} className={` ${isDesktop && 'relative h-[400vh]'}`}>
-            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-stretch overflow-hidden my-12'}  ${!isDesktop && 'overflow-x-scroll py-8 scrollbar-none  scroll-smooth'}`}>
-                <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-6">
+            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll flex min-h-[100vh] items-center  scrollbar-none  scroll-smooth'}`}>
+                <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-4 md:gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;
                     })}

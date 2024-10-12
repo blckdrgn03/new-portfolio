@@ -14,6 +14,7 @@ export const TextGenerateEffect = ({
   let wordsArray = words.split(" ");
   
   useEffect(() => {
+    console.log("Animating words with delay:", delay);
     animate("span", {
       opacity: 1,
       filter: filter ? "blur(0px)" : "none",

@@ -7,7 +7,7 @@ export function Project({ project }) {
   return (
     (<CardContainer className="inter-var scroll-snap-start">
       <CardBody
-        className="bg-[#171d26] relative group/card hover:shadow-2xl hover:shadow-accent/[0.2] w-[20rem] md:w-[25rem] lg:w-[30rem] h-auto rounded-xl p-6">
+        className="bg-[#171d26] relative group/card hover:shadow-2xl hover:shadow-accent/[0.2] w-[20rem] md:w-[25rem] lg:w-[30rem] h-full rounded-xl p-4 sm:p-6">
         <CardItem
           translateZ="50"
           className="text-xl md:text-2xl text-white lg:text-3xl font-bold text-white capitalize">

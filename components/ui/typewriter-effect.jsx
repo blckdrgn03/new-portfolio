@@ -69,7 +69,7 @@ export const TypewriterEffect = ({
         }}
         transition={{
           duration: 0.8,
-          repeat: Infinity,
+          repeat: 1,
           repeatType: "reverse",
         }}
         className={cn(
@@ -130,7 +130,7 @@ export const TypewriterEffectSmooth = ({
         initial={{
           width: "0%",
         }}
-        whileInView={{
+        animate={{
           width: "fit-content",
         }}
         transition={{

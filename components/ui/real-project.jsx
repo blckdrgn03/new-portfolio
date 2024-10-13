@@ -22,7 +22,7 @@ export default function RealProjects() {
         },
         {
             name: 'Login-Register',
-            description: 'A authentication system with form validation for user sign-up and login.',
+            description: 'A authentication system with form validation for user to login or register new account.',
             id: 2,
             image: '/login.png',
             techs: ['/html.svg', '/css.svg', '/javascript.svg'],
@@ -40,7 +40,7 @@ export default function RealProjects() {
         },
         {
             name: 'Weather App',
-            description: 'Displays current weather conditions and a 5-day forecast using real-time data.',
+            description: 'Displays the current weather conditions of any city and a 5-day forecast using real-time data.',
             id: 4,
             image: '/weather.png',
             techs: ['/html.svg', '/css.svg', '/javascript.svg', '/react.svg'],
@@ -67,8 +67,8 @@ export default function RealProjects() {
 
     return (
         <div ref={targetRef} className={` ${isDesktop && 'relative h-[400vh]'}`}>
-            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll flex min-h-[100vh] items-center  scrollbar-none  scroll-smooth'}`}>
-                <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-4 md:gap-6">
+            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll container flex min-h-[100vh] items-center  scrollbar-none  scroll-smooth'}`}>
+                <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-4 h-auto md:gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;
                     })}

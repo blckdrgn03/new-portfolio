@@ -12,7 +12,7 @@ import {
 import { useEffect, useState, useCallback } from "react";
 
 export default function Header() {
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);

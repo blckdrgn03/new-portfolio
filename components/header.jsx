@@ -12,7 +12,7 @@ import {
 import { useEffect, useState, useCallback } from "react";
 
 export default function Header() {
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +59,7 @@ export default function Header() {
                 <nav className="flex justify-center gap-8 items-center">
                     {links.map((link, i) => (
                         <a 
-                            className={`${activeSection === link.name ? "text-accent font-semibold border-b-accent border-b-2" : ""} hover:text-accent transition-all duration-300 capitalize`} 
+                            className={`${activeSection === link.name ? "text-accent font-semibold border-b-accent border-b-2" : "border-b-transparent border-b-2"} hover:text-accent transition-all duration-300 capitalize`} 
                             key={i} 
                             href={link.path}
                         >

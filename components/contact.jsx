@@ -1,17 +1,40 @@
-"use client"
+"use client";
 
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { Button } from "./ui/button";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useState } from "react";
 
 export default function Contact() {
+    const [submitted, setSubmitted] = useState(false); // State to track form submission
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prevent default form submission
+        const form = event.target; // Get the form element
+
+        fetch(form.action, {
+            method: form.method, // Use POST method
+            body: new FormData(form), // Send form data
+            headers: {
+                Accept: "application/json", // Set header for JSON response
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setSubmitted(true); // If successful, set submitted state to true
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error); // Handle errors
+            });
+    };
+
     const CopyToClipboard = (textToCopy) => {
         navigator.clipboard
             .writeText(textToCopy)
@@ -37,56 +60,59 @@ export default function Contact() {
                 form below or connect with me on social media.
             </p>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-20">
-                <form
-                    action="https://formspree.io/f/mgveekya"
-                    method="POST"
-                    className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]"
-                >
-                    <div>
-                        <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">
-                            Let&apos;s work together!
-                        </h2>
-                        <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">
-                            Let me know how you feel.
-                        </p>
-
-                        <div className="flex flex-col lg:text-lg gap-2 sm:gap-4 text-sm md:text-md">
-                            <input
-                                placeholder="Full name"
-                                name="name"
-                                required
-                                className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
-                            />
-                            {/* <input
-                                placeholder="Last name"
-                                className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
-                            /> */}
-                            <input
-                                placeholder="Email address"
-                                name="email"
-                                required
-                                type="email"
-                                className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
-                            />
-                            <input
-                                placeholder="Phone number"
-                                name="phone"
-                                type="tel"
-                                required
-                                className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
-                            />
-                            <textarea
-                                placeholder="Write a message here..."
-                                name="message"
-                                required
-                                className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[7rem] sm:h-[10rem] resize-none"
-                            ></textarea>
-                        </div>
+                {submitted ? ( // Show success message if submitted
+                    <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex justify-center items-center aspect-[5/7] rounded-xl bg-[#171d26]">
+                        <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">Thanks for choosing to work with me!</h2>
                     </div>
-                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-6 py-3 xl:text-lg self-end rounded-full hover:bg-accent-hover">
-                        Send message
-                    </button>
-                </form>
+                ) : (
+                    <form
+                        action="https://formspree.io/f/mgveekya"
+                        method="POST"
+                        onSubmit={handleSubmit} // Attach the submit handler
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]"
+                    >
+                        <div>
+                            <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">
+                                Let&apos;s work together!
+                            </h2>
+                            <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">
+                                Let me know how you feel.
+                            </p>
+
+                            <div className="flex flex-col lg:text-lg gap-2 sm:gap-4 text-sm md:text-md">
+                                <input
+                                    placeholder="Full name"
+                                    name="name"
+                                    required
+                                    className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
+                                />
+                                <input
+                                    placeholder="Email address"
+                                    name="email"
+                                    required
+                                    type="email"
+                                    className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
+                                />
+                                <input
+                                    placeholder="Phone number"
+                                    name="phone"
+                                    type="tel"
+                                    required
+                                    className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
+                                />
+                                <textarea
+                                    placeholder="Write a message here..."
+                                    name="message"
+                                    required
+                                    className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[7rem] sm:h-[10rem] resize-none"
+                                ></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-6 py-3 xl:text-lg self-end rounded-full hover:bg-accent-hover">
+                            Send message
+                        </button>
+                    </form>
+                )}
                 <div className="flex flex-col mt-2 gap-3 xl:gap-6">
                     <div className="flex md:flex-col xl:flex-row md:items-center gap-4">
                         <TooltipProvider>

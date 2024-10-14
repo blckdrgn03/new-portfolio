@@ -13,26 +13,32 @@ import { useState } from "react";
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false); // State to track form submission
+    const [isError, setIsError] = useState(false)
+    const errorMessage = "ERROR: An error occured while sending the message (Spam or random messages will be blocked automatically)."
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
         const form = event.target; // Get the form element
 
-        fetch(form.action, {
-            method: form.method, // Use POST method
-            body: new FormData(form), // Send form data
-            headers: {
-                Accept: "application/json", // Set header for JSON response
-            },
-        })
-            .then((response) => {
-                if (response.ok) {
-                    setSubmitted(true); // If successful, set submitted state to true
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error); // Handle errors
+        try {
+            const response = await fetch(form.action, {
+                method: form.method, // Use POST method
+                body: new FormData(form), // Send form data
+                headers: {
+                    Accept: "application/json", // Set header for JSON response
+                },
             });
+
+            if (response.ok) {
+                setSubmitted(true); // If successful, set submitted state to true
+                setIsError(false);
+            } else {
+                throw new Error("Network response was not ok");
+            }
+        } catch (error) {
+            setIsError(true);
+            console.error("Error occurred:", error);
+        }
     };
 
     const CopyToClipboard = (textToCopy) => {
@@ -63,7 +69,7 @@ export default function Contact() {
                 {submitted ? ( // Show success message if submitted
                     <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-center px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]">
                         <h2 className="text-2xl text-center lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">The message was sent!</h2>
-                        <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">
+                        <p className="text-sm md:text-md lg:text-lg text-center sm:pb-8 pb-6">
                             Thanks for choosing to work with me. You will get an email from me soon!
                         </p>
                     </div>
@@ -72,10 +78,10 @@ export default function Contact() {
                         action="https://formspree.io/f/mgveekya"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
-                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]"
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
                     >
                         <div>
-                            <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">
+                            <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-2 sm:pb-3">
                                 Let&apos;s work together!
                             </h2>
                             <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">
@@ -87,14 +93,14 @@ export default function Contact() {
                                     placeholder="Full name"
                                     name="name"
                                     required
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
                                 <input
                                     placeholder="Email address"
                                     name="email"
                                     required
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     type="email"
                                     className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
@@ -103,16 +109,21 @@ export default function Contact() {
                                     name="phone"
                                     type="tel"
                                     required
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
                                 <textarea
                                     placeholder="Write a message here..."
                                     name="message"
                                     required
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[10rem] resize-none"
                                 ></textarea>
+                                {isError && (
+                                    <div className="rounded-[8px] hidden md:block text-md selection:bg-red-500 border border-red-500 hover:bg-red-200 hover:border-red-200 transition-all duration-300 g-red-200 text-red-500 font-semibold p-3 lg:p-4">
+                                        {errorMessage} 
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-6 py-3 xl:text-lg self-end rounded-full hover:bg-accent-hover">
@@ -120,14 +131,20 @@ export default function Contact() {
                         </button>
                     </form>
                 )}
-                <div className="flex flex-col mt-2 gap-3 xl:gap-6">
-                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4">
+                <div className="flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8">
+                    {isError && (
+                        <div className="rounded-xl md:hidden text-sm selection:text-red-200 
+                        bg-red-200 selection:bg-red-500 g-red-200 text-red-500 font-semibold p-3 -mt-4 mb-2">
+                            {errorMessage} 
+                        </div>
+                    )}
+                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4 md:gap-2 xl:gap-6">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <IoMdMail
                                         onClick={() => CopyToClipboard("abdullahalsayef17@gmail.com")}
-                                        className="bg-[#171d26] text-accent hover:bg-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-14 w-14 md:h-16 md:w-16 xl:h-18 xl:w-18 xl:p-4"
+                                        className="bg-[#171d26] text-accent hover:bg-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all duration-300 h-14 w-14 md:h-16 md:w-16 xl:h-20 xl:w-20 xl:p-4"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -147,13 +164,13 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4">
+                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4 md:gap-2 xl:gap-6">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <FaPhoneAlt
                                         onClick={() => CopyToClipboard("+880 13056 38260")}
-                                        className="bg-[#171d26] cursor-pointer active:bg-[#171d26] active:text-accent text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-4 transition-all transition-500 h-14 w-14 md:h-16 md:w-16 xl:h-18 xl:w-18 xl:p-5"
+                                        className="bg-[#171d26] cursor-pointer active:bg-[#171d26] active:text-accent text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-4 transition-all transition-500 h-14 w-14 md:h-16 md:w-16 xl:h-20 xl:w-20 xl:p-5"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -172,13 +189,13 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4">
+                    <div className="flex md:flex-col xl:flex-row md:items-center gap-4 md:gap-2 xl:gap-6">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <FaLocationDot
                                         onClick={() => CopyToClipboard("Bogura, Bangladesh")}
-                                        className="bg-[#171d26] text-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-14 w-14 md:h-16 md:w-16 xl:h-18 xl:w-18 xl:p-4"
+                                        className="bg-[#171d26] text-accent cursor-pointer active:bg-[#171d26] active:text-accent hover:bg-accent hover:text-[#171d26]  rounded-[8px] p-3 transition-all transition-500 h-14 w-14 md:h-16 md:w-16 xl:h-20 xl:w-20 xl:p-4"
                                     />
                                 </TooltipTrigger>
                                 <TooltipContent>

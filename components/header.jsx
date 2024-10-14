@@ -76,7 +76,6 @@ export default function Header() {
 
 function MobileMenu({ activeSection }) {
     const currentPath = usePathname();
-    console.log(currentPath);
   
     return (
         <Sheet>

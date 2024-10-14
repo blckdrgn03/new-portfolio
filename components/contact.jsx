@@ -82,7 +82,7 @@ export default function Contact() {
                             ></textarea>
                         </div>
                     </div>
-                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold xl:p-6 xl:text-lg self-end rounded-full hover:bg-accent-hover">
+                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold xl:px-6 xl:text-lg self-end rounded-full hover:bg-accent-hover">
                         Send message
                     </button>
                 </form>

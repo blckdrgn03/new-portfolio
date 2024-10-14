@@ -63,13 +63,14 @@ export default function Contact() {
                             /> */}
                             <input
                                 placeholder="Email address"
-                                name="name"
+                                name="email"
                                 required
                                 type="email"
                                 className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                             />
                             <input
                                 placeholder="Phone number"
+                                name="phone"
                                 type="tel"
                                 required
                                 className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
@@ -82,7 +83,7 @@ export default function Contact() {
                             ></textarea>
                         </div>
                     </div>
-                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold xl:px-6 xl:text-lg self-end rounded-full hover:bg-accent-hover">
+                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-4 py-2 xl:py-4 xl:px-6 xl:text-lg self-end rounded-full hover:bg-accent-hover">
                         Send message
                     </button>
                 </form>

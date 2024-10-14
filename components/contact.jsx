@@ -38,7 +38,8 @@ export default function Contact() {
             </p>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-20">
                 <form
-                    action=""
+                    action="https://formspree.io/f/mgveekya"
+                    method="POST"
                     className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]"
                 >
                     <div>
@@ -51,32 +52,39 @@ export default function Contact() {
 
                         <div className="flex flex-col lg:text-lg gap-2 sm:gap-4 text-sm md:text-md">
                             <input
-                                placeholder="First name"
+                                placeholder="Full name"
+                                name="name"
+                                required
                                 className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                             />
-                            <input
+                            {/* <input
                                 placeholder="Last name"
                                 className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
-                            />
+                            /> */}
                             <input
                                 placeholder="Email address"
+                                name="name"
+                                required
+                                type="email"
                                 className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                             />
                             <input
                                 placeholder="Phone number"
+                                type="tel"
+                                required
                                 className="bg-primary border-primary focus:border-accent placeholder-slate/[0.4] focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                             />
                             <textarea
-                                name=""
-                                id=""
-                                placeholder="Write something here..."
+                                placeholder="Write a message here..."
+                                name="message"
+                                required
                                 className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[7rem] sm:h-[10rem] resize-none"
                             ></textarea>
                         </div>
                     </div>
-                    <Button className="bg-accent  text-sm lg:text-md font-semibold xl:p-6 xl:text-lg self-end text-primary rounded-full hover:bg-accent-hover">
+                    <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold xl:p-6 xl:text-lg self-end rounded-full hover:bg-accent-hover">
                         Send message
-                    </Button>
+                    </button>
                 </form>
                 <div className="flex flex-col mt-2 gap-3 xl:gap-6">
                     <div className="flex md:flex-col xl:flex-row md:items-center gap-4">

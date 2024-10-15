@@ -92,21 +92,21 @@ export const TypewriterEffectSmooth = ({
       text: word.text.split(""),
     };
   });
-  const RenderShits = ({char}) => {
+  const RenderShits = ({char, anotherKey}) => {
     return (
-      <span>
+      <span key={anotherKey}>
                   {char}
       </span>
     )
   }
-  const RenderMoreShits = ({shit}) => {
+  function RenderMoreShits({ shit }) {
     return (
       <div className="inline-block">
-              {shit.text.map((char, index) => (
-                <RenderShits key={index} char={char} />
-              ))} 
-            </div>
-    )
+        {shit.text.map((char, index) => (
+          <RenderShits key={index} anotherKey={index} char={char} />
+        ))}
+      </div>
+    );
   }
   const renderWords = () => {
     return (

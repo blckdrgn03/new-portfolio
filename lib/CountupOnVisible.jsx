@@ -35,7 +35,7 @@ const CountUpOnVisible = ({ start, end, duration }) => {
   return (
     <div className='text-white' ref={countRef}>
       {isVisible && (
-        <CountUp delay={1} start={start} end={end} duration={4} />
+        <CountUp delay={1} start={start} end={end} duration={3} />
       )}
     </div>
   );

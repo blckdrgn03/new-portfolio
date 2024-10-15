@@ -56,7 +56,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
 
             <div className="relative group shrink-0 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
                 
-                <motion.div initial={isXlWindow && { top: "0px", left: "0px",bottom: "0px", right: "0px" }} whileInView={isXlWindow && { top: "-16px", left: "-16px",bottom: "16px", right: "16px" }} viewport={isXlWindow && { once: true, margin: '-209px 0px 0px 0px'  }} 
+                <motion.div initial={isXlWindow && { top: "0px", left: "0px",bottom: "0px", right: "0px" }} whileHover={isXlWindow && { top: "16px", left: "16px",bottom: "-16px", right: "-16px" }} whileInView={isXlWindow && { top: "-16px", left: "-16px",bottom: "16px", right: "16px" }} viewport={isXlWindow && { once: true, margin: '-209px 0px 0px 0px'  }} 
                 transition={isXlWindow && { duration: 0.5, delay: 1.25 }} className="absolute group-hover:z-30 group-hover:brightness-100 transition-all duration-500 brightness-90 -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 md:delay-300 rounded-[8px] overflow-hidden">
                     <Image
                         src={bottomImage.src}
@@ -66,8 +66,8 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
                         className="object-cover object-center"
                     />
                 </motion.div> 
-                <motion.div initial={{ top: "0px", left: "0px",bottom: "0px", right: "0px" }} whileInView={{ top: "16px", left: "16px",bottom: "-16px", right: "-16px" }} viewport={{ once: true, margin: '-209px 0px 0px 0px' }} 
-                transition={{ duration: 0.5, delay: 1.25 }} className="rounded-[8px] group-hover:brightness-90 transition-all group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 duration-500 absolute group-hover:bottom-2 group-hover:right-2 z-20 top-2 left-2 -right-2 -bottom-2 overflow-hidden md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3">
+                <motion.div initial={isXlWindow && { top: "0px", left: "0px",bottom: "0px", right: "0px" }} whleHover={isXlWindow && { top: "-16px", left: "-16px",bottom: "16px", right: "16px" }} whileInView={isXlWindow && { top: "16px", left: "16px",bottom: "-16px", right: "-16px" }} viewport={isXlWindow && { once: true, margin: '-209px 0px 0px 0px' }} 
+                transition={isXlWindow && { duration: 0.5, delay: 1.25 }} className="rounded-[8px] group-hover:brightness-90 transition-all group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 duration-500 absolute group-hover:bottom-2 group-hover:right-2 z-20 top-2 left-2 -right-2 -bottom-2 overflow-hidden md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3">
                     <Image
                         src={topImage.src}
                         alt={topImage.alt}

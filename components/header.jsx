@@ -52,7 +52,7 @@ export default function Header() {
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             transition={{ duration: 0.75, delay: 0.25 }}
-            className={`transition-transform bg-primary/[0.2] duration-300 fixed top-1 -translate-x-1/2 z-10 left-1/2 text-white my-4 py-2 xl:py-4 backdrop-blur-lg rounded-full xl:my-9 xl:py-3 container flex items-center justify-end md:justify-between ${isVisible ? "" : "-translate-y-[10rem]"} ${isScrolled ? "border border-white/[0.1] shadow-2xl transition-border transition-shadow" : "border border-white/[0] transition-border transition-shadow"}`}
+            className={`transition-transform bg-primary/[0.25] duration-300 fixed top-1 -translate-x-1/2 z-10 left-1/2 text-white my-4 py-2 xl:py-4 backdrop-blur-lg rounded-full xl:my-9 xl:py-3 container flex items-center justify-end md:justify-between ${isVisible ? "" : "-translate-y-[10rem]"} ${isScrolled ? "border border-white/[0.1] shadow-2xl transition-border transition-shadow" : "border border-white/[0] transition-border transition-shadow"}`}
         >
             <a className="group font-bold hidden md:block capitalize text-4xl" href="#home"><h1>sayef</h1></a>
             <div className="hidden xl:flex gap-8">
@@ -94,7 +94,7 @@ function MobileMenu({ activeSection }) {
                                 {link.name}
                             </a>
                         ))}
-                        <a href="https://thefileslocker.net/p9lcql3bf7i8.html">Get Dust</a>
+                        
                     </nav>
                     <Button className="font-semibold bg-accent text-xl md:text-2xl p-6 text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
                 </div>

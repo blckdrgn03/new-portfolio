@@ -19,6 +19,8 @@ export default function Services() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    
     return (
         <section id="services" className="container mx-auto pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem]">
             <h1 className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Services</h1>
@@ -26,15 +28,29 @@ export default function Services() {
 
             <div className="">
                 {services.map((service) => {
-                    return <Service isXlWindow={windowSize} key={service.id} name={service.name} description={service.description} topImage={service.topImage} bottomImage={service.bottomImage} />
+                    return <Service isXlWindow={windowSize} key={service.id} id={service.id} name={service.name} description={service.description} topImage={service.topImage} bottomImage={service.bottomImage} />
                 })}
             </div>
         </section>
     );
 }
 
-const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
-    
+const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) => {
+    const [inView, setInView] = useState([false, false, false])
+
+    const handleView = (e, id) => {
+        setTimeout(() => {
+            setInView(inView.map((x, i) => {
+            
+                if(id == i) {
+                    return true;
+                } else {
+                    return x;
+                }
+                
+            }))
+        }, 1250)
+    } 
     return (
         <div className="flex mx-auto pt-12 md:pt-16 xl:pt-24 xl:gap-16 flex-col-reverse odd:xl:flex-row even:xl:flex-row-reverse xl:justify-center items-center">
             <motion.div 
@@ -55,9 +71,8 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
             </motion.div>
 
             <div className="relative group shrink-0 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
-                
-                <motion.div initial={isXlWindow && { top: "0px", left: "0px",bottom: "0px", right: "0px" }} whileHover={isXlWindow && { top: "16px", left: "16px",bottom: "-16px", right: "-16px" }} whileInView={isXlWindow && { top: "-16px", left: "-16px",bottom: "16px", right: "16px" }} viewport={isXlWindow && { once: true, margin: '-209px 0px 0px 0px'  }} 
-                transition={isXlWindow && { duration: 0.5, delay: 1.25 }} className="absolute group-hover:z-30 group-hover:brightness-100 transition-all duration-500 brightness-90 -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 md:delay-300 rounded-[8px] overflow-hidden">
+                <motion.div onViewportEnter={(e) => {handleView(e, id)}} className="absolute top-1/2 left-1/2 h-2 w-2 bg-transparent -z-50"></motion.div>
+                <div className={`absolute shadow-xl group-hover:brightness-100 transition-all duration-500 brightness-90 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? " -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={bottomImage.src}
                         alt={bottomImage.alt}
@@ -65,9 +80,8 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
                         quality={100}
                         className="object-cover object-center"
                     />
-                </motion.div> 
-                <motion.div initial={isXlWindow && { top: "0px", left: "0px",bottom: "0px", right: "0px" }} whleHover={isXlWindow && { top: "-16px", left: "-16px",bottom: "16px", right: "16px" }} whileInView={isXlWindow && { top: "16px", left: "16px",bottom: "-16px", right: "-16px" }} viewport={isXlWindow && { once: true, margin: '-209px 0px 0px 0px' }} 
-                transition={isXlWindow && { duration: 0.5, delay: 1.25 }} className="rounded-[8px] group-hover:brightness-90 transition-all group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 duration-500 absolute group-hover:bottom-2 group-hover:right-2 z-20 top-2 left-2 -right-2 -bottom-2 overflow-hidden md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3">
+                </div> 
+                <div className={`rounded-[8px] shadow-xl group-hover:brightness-90 transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 group-hover:bottom-2 group-hover:right-2 top-2 left-2 -right-2 -bottom-2 md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={topImage.src}
                         alt={topImage.alt}
@@ -75,7 +89,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow }) => {
                         quality={100}
                         className="object-cover object-center"
                     />
-                </motion.div>
+                </div>
             </div>
         </div>
     );
@@ -87,20 +101,20 @@ const services = [
         description: "I design intuitive and visually appealing user interfaces that enhance user experience while balancing aesthetics and functionality.",
         topImage: { alt: "UI/UX design illustration featuring Figma interface", src: "/weather.png" },
         bottomImage: { alt: "UI/UX design tools showcased with Figma logo", src: "/todo.png" },
-        id: 1,
+        id: 0,
     },
     {
         name: "Front-end Development",
         description: "I develop responsive and dynamic front-end applications with clean, efficient code, ensuring seamless interaction across devices.",
         topImage: { alt: "Front-end development screenshot of a weather app", src: "/weather.png" },
         bottomImage: { alt: "Weather app interface showing real-time forecasts", src: "/todo.png" },
-        id: 2,
+        id: 1,
     },
     {
         name: "SEO",
         description: "I optimize websites to rank higher in search engines, increasing visibility and driving organic traffic with strategic SEO practices.",
         topImage: { alt: "SEO optimization with ranking and search analytics", src: "/weather.png" },
         bottomImage: { alt: "Website traffic analytics showing SEO improvement", src: "/todo.png" },
-        id: 3,
+        id: 2,
     },
 ];

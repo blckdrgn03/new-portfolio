@@ -99,9 +99,9 @@ export const TypewriterEffectSmooth = ({
       </span>
     )
   }
-  function RenderMoreShits({ shit }) {
+  function RenderMoreShits({ shit, id }) {
     return (
-      <div className="inline-block">
+      <div className="inline-block" key={id}>
         {shit.text.map((char, index) => (
           <RenderShits key={index} anotherKey={index} char={char} />
         ))}
@@ -114,7 +114,7 @@ export const TypewriterEffectSmooth = ({
         {wordsArray.map((word, idx) => {
           return (
             (
-            <><RenderMoreShits key={idx} shit={word} />{" "}</>
+            <><RenderMoreShits key={idx} shit={word} id={idx} />{" "}</>
           )
             
           );

@@ -81,7 +81,7 @@ export default function Contact() {
                         className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
                     >
                         <div>
-                            <h2 className="text-2xl lg:text-4xl font-bold md:text-3xl text-white pb-2 sm:pb-3">
+                            <h2 className="text-2xl text-center xl:text-left lg:text-4xl font-bold md:text-3xl text-white pb-2 sm:pb-3">
                                 Let&apos;s work together!
                             </h2>
                             <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">

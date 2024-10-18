@@ -106,7 +106,7 @@ function MobileMenu({ activeSection }) {
 const links = [
     { name: "home", path: "#home" },
     { name: "services", path: "#services" },
-    { name: "about", path: "#about" },
+    { name: "resume", path: "#resume" },
     { name: "projects", path: "#projects" },
     { name: "contact", path: "#contact" }
 ];

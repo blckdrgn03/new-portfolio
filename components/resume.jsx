@@ -15,14 +15,14 @@ export default function Resume() {
             <p className="text-sm md:text-md lg:text-lg text-center xl:text-left mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi ipsum facilis explicabo inventore animi nam. Iusto nobis nemo maiores voluptate, numquam ex laudantium?</p>
 
             <Tabs defaultValue="about">
-                <TabsList>
+                <TabsList className="">
                     <TabsTrigger value="about">About</TabsTrigger>
                     <TabsTrigger value="education">Education</TabsTrigger>
                     <TabsTrigger value="experience">Experience</TabsTrigger>
                     <TabsTrigger value="technology">Technology</TabsTrigger>
                 </TabsList>
                 <TabsContent value="about">
-                    <div className="">
+                    <div className="text-sm">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">About</h2>
                         <p className="mb-8 text-center text-sm">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
 
@@ -30,56 +30,56 @@ export default function Resume() {
                             {aboutData.map((data, i) => {
                                 return (
                                     <div key={i} className={`   rounded-[4px] px-1  py-3 border border-1 shadow-xl bg-white/[0.05] transition-all duration-300 hover:bg-white/[0.1] border-white/[0.2] ${(data[0] == "Name" || data[0] == "Email") ? "w-full" : "w-[calc(50%-6px)]" }`}>
-                                        <h3 className="text-lg  text-white text-center">{data[0]}</h3>
-                                        <p className={`text-md text-slate  text-center`}>{data[1]}</p>
+                                        <h3 className="text-md  text-white text-center">{data[0]}</h3>
+                                        <p className={`text-center`}>{data[1]}</p>
                                     </div>
                                 )
                             })}
                         </div>
                         <div className="pt-8 flex flex-col gap-4">
-                            <h3 className="text-lg text-center text-white -mb-3">Bangla</h3>
+                            <h3 className="text-center text-white -mb-3 text-md">Bangla</h3>
                             <Progress value={100} />
-                            <h3 className="text-lg text-center text-white -mb-3">English</h3>
+                            <h3 className="text-center text-white -mb-3 text-md">English</h3>
                             <Progress value={80} />
                         </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="education">
-                    <div className="">
+                    <div className="text-sm">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Education</h2>
                         <p className="mb-8 text-center text-sm">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
                         <div className="flex flex-col flex-wrap gap-3 ">
                             <div className="rounded-[4px] py-3 border border-1 shadow-xl px-1 bg-white/[0.05] transition-all duration-300 hover:bg-white/[0.1] border-white/[0.2] px-2 ">
-                                <h3 className="text-lg text-white  text-center">School (BCPSC)</h3>
+                                <h3 className="text-md text-white  text-center">School (BCPSC)</h3>
                                 <p className=" text-center">2014-Present</p>
                             </div>
                             <div className="rounded-[4px] py-3 border border-1 shadow-xl bg-white/[0.05] transition-all duration-300 hover:bg-white/[0.1] border-white/[0.2] px-1 ">
-                                <h3 className="text-lg text-white text-center">
+                                <h3 className="text-md text-white text-center">
                                 Codecademy</h3>
                                 <p className=" text-center">2022-2024</p>
                             </div>
                             <div className="rounded-[4px] py-3 border border-1 border-white/[0.2] shadow-xl bg-white/[0.05] transition-all duration-300 hover:bg-white/[0.1] px-1 ">
-                                <h3 className="text-lg text-center text-white ">Reading Documentaries and Coding</h3>
+                                <h3 className="text-md text-center text-white ">Reading Documentaries and Coding</h3>
                                 <p className=" text-center">2022-Present</p>
                             </div>
                         </div>
                         <div className="pt-8 flex flex-col gap-4">
-                            <h3 className="text-lg text-center text-white -mb-3">UI/UX Designing</h3>
+                            <h3 className="text-md text-center text-white -mb-3">UI/UX Designing</h3>
                             <Progress value={70} />
-                            <h3 className="text-lg text-center text-white -mb-3">Front-end Development</h3>
+                            <h3 className="text-md text-center text-white -mb-3">Front-end Development</h3>
                             <Progress value={90} />
-                            <h3 className="text-lg text-center text-white -mb-3">SEO</h3>
+                            <h3 className="text-md text-center text-white -mb-3">SEO</h3>
                             <Progress value={80} />
                         </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="experience">
-                    <div className="">
+                    <div className="text-sm">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Experience</h2>
                         <p className="mb-8 text-center text-sm">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
                         <div className="flex flex-col flex-wrap gap-3 ">
                             <div className="rounded-[4px] py-3 border border-1 shadow-xl bg-white/[0.05] transition-all px-1  duration-300 hover:bg-white/[0.1] border-white/[0.2]">
-                                <h3 className="text-lg text-white text-center">
+                                <h3 className="text-md text-white text-center">
                                 Building Dummy Projects</h3>
                                 <p className=" text-center">2024-Present</p>
                             </div>
@@ -88,17 +88,17 @@ export default function Resume() {
                             </div>
                         </div>
                         <div className="pt-8 flex flex-col gap-4">
-                            <h3 className="text-lg text-center text-white -mb-3">UI/UX Designing</h3>
+                            <h3 className="text-md text-center text-white -mb-3">UI/UX Designing</h3>
                             <Progress value={20} />
-                            <h3 className="text-lg text-center text-white -mb-3">Front-end Development</h3>
+                            <h3 className="text-md text-center text-white -mb-3">Front-end Development</h3>
                             <Progress value={40} />
-                            <h3 className="text-lg text-center text-white -mb-3">SEO</h3>
+                            <h3 className="text-md text-center text-white -mb-3">SEO</h3>
                             <Progress value={30} />
                         </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="technology">
-                    <div className="">
+                    <div className="text-sm">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Technology</h2>
                         <p className="mb-8 text-center text-sm">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
                         
@@ -125,8 +125,8 @@ function Technology({ tech }) {
                 <Image fill quality={100} alt={tech[0]} src={tech[2]} className="object-contain object-center" />
             </div>
             <div className="w-[75%]">
-                <h3 className="text-white text-lg">{tech[0]}</h3>
-                <p className="">{tech[1]}</p>
+                <h3 className="text-white text-md">{tech[0]}</h3>
+                <p className="text-sm">{tech[1]}</p>
             </div>    
         </div> 
     )

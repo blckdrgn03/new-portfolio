@@ -71,7 +71,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                         <FaArrowRight className="inline ml-2 md:ml-3 xl:ml-4 -translate-x-6 hover:text-accent text-[0px] opacity-0 transition-all duration-500 group-hover/service:translate-x-0 group-hover/service:text-xl group-hover/service:opacity-100 hover:rotate-90 cursor-pointer" />
                     </a>
                 </h2>
-                <p className=" text-xs md:text-sm lg:text-md text-center">{description}</p>
+                <p className="xl:w-[44ch] text-sm md:text-md lg:text-lg text-center">{description}</p>
             </motion.div>
 
             <div className="relative group shrink-0 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">

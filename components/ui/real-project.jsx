@@ -40,7 +40,7 @@ export default function RealProjects() {
         },
         {
             name: 'Weather App',
-            description: 'Displays the current weather conditions of any city and a 5-day forecast using real-time data.',
+            description: 'Displays the current weather conditions and a 5-day forecast of any country.',
             id: 4,
             image: '/weather.png',
             techs: ['/html.svg', '/css.svg', '/javascript.svg', '/react.svg'],
@@ -63,11 +63,11 @@ export default function RealProjects() {
     const { scrollYProgress } = useScroll({
         target: targetRef,
     });
-    const x = useTransform(scrollYProgress, [0, 1], ["4%", "-80%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
     return (
         <div ref={targetRef} className={` ${isDesktop && 'relative h-[400vh]'}`}>
-            <div className={`${isDesktop && 'sticky top-0 flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll container flex min-h-[100vh] items-center  scrollbar-none  scroll-smooth'}`}>
+            <div className={`${isDesktop && 'sticky top-0 container flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll container flex  items-center my-8 scrollbar-none  scroll-smooth'}`}>
                 <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-4 h-auto md:gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;

@@ -1,7 +1,7 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-// import Header from "@/components/header"
-// import { ShootingStars } from "../components/ui/shooting-star";
+import Header from "@/components/header"
+import { ShootingStars } from "../components/ui/shooting-star";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -20,12 +20,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${jetbrainsMono.variable} antialiased bg-primary text-slate`}
       >
-        {/* <Header /> */}
+        <Header />
         {children}
-        {/* <footer className="pb-1 text-center text-xs pointer-events-none select-none pt-10 lg:pt-16 xl:pt-20">~ABDULLAH AL SAYEF~</footer>
+        <footer className="pb-1 text-center text-xs pointer-events-none select-none pt-10 lg:pt-16 xl:pt-20">~ABDULLAH AL SAYEF~</footer>
         <div className="-z-30 fixed top-0 h-screen left-0 w-screen">
             <ShootingStars starColor="#22b7f7" trailColor="#22b7f7" className=""/>
-        </div> */}
+        </div>
         
       </body>
     </html>

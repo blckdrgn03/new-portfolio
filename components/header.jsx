@@ -19,21 +19,8 @@ export default function Header() {
 
     useEffect(() => {
         const currentPosition = window.scrollY;
-        const sections = document.querySelectorAll('section');
-
-        setIsScrolled(currentPosition > 0);
-
-        for (const section of sections) {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-    
-            if (currentPosition >= sectionTop - 100 && currentPosition < sectionTop + sectionHeight) {
-                setActiveSection(section.getAttribute('id'));
-                break;
-            }
-        }
-
-        setIsVisible(currentPosition <= scrollPosition || currentPosition < 100);
+        
+        setIsVisible(currentPosition < 100);
         setScrollPosition(currentPosition);
     }, [])
 

@@ -17,7 +17,25 @@ export default function Header() {
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
 
+    useEffect(() => {
+        const currentPosition = window.scrollY;
+        const sections = document.querySelectorAll('section');
 
+        setIsScrolled(currentPosition > 0);
+
+        for (const section of sections) {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+    
+            if (currentPosition >= sectionTop - 100 && currentPosition < sectionTop + sectionHeight) {
+                setActiveSection(section.getAttribute('id'));
+                break;
+            }
+        }
+
+        setIsVisible(currentPosition <= scrollPosition || currentPosition < 100);
+        setScrollPosition(currentPosition);
+    }, [])
 
     const handleScroll = useCallback(() => {
         const currentPosition = window.scrollY;
@@ -40,8 +58,6 @@ export default function Header() {
     }, [scrollPosition]);
 
     useEffect(() => {
-        handleScroll();
-
         window.addEventListener('scroll', handleScroll);
 
         return () => window.removeEventListener('scroll', handleScroll);

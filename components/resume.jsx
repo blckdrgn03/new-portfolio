@@ -171,7 +171,7 @@ function Technology({ tech }) {
             </div>
             <div className="flex flex-col w-[75%] md:w-auto">
                 <h3 className="text-white md:text-center group-hover:md:text-left transition-all duration-300  text-md md:text-lg lg:text-xl">{tech[0][0]}</h3>
-                <p className="text-sm md:h-0 md:w-0 md:opacity-0 md:group-hover:h-auto md:group-hover:w-auto md:group-hover:opacity-100 transition-all duration-300">{tech[0][1]}</p>
+                <p className="text-sm md:h-0 md:w-0 md:opacity-0 md:group-hover:h-auto md:group-hover:w-auto md:group-hover:opacity-100 transition-all duration-500">{tech[0][1]}</p>
             </div>    
         </div> 
         <div className="w-full md:h-[88px] lg:h-[106px] xl:h-[101px] group md:w-[calc(50%-8px)] md:hover:w-[calc(66%-8px)] md:hover:shrink-0 p-3 bg-accent/[0.05] rounded-[8px] border border-1 border-accent/[0.25] shadow-xl hover:bg-accent/[0.1] justify-between md:justify-start md:gap-8 transition-all duration-300 flex items-center overflow-hidden">
@@ -180,7 +180,7 @@ function Technology({ tech }) {
             </div>
             <div className="w-[75%] flex flex-col md:w-auto ">
                 <h3 className="text-white md:text-center group-hover:md:text-left transition-all duration-300  text-md md:text-lg lg:text-xl">{tech[1][0]}</h3>
-                <p className="text-sm md:h-0 md:w-0 md:opacity-0 md:group-hover:h-auto md:group-hover:w-auto md:group-hover:opacity-100  transition-all duration-300">{tech[1][1]}</p>
+                <p className="text-sm md:h-0 md:w-0 md:opacity-0 md:group-hover:h-auto md:group-hover:w-auto md:group-hover:opacity-100  transition-all duration-500">{tech[1][1]}</p>
             </div>    
         </div> </div>
     )

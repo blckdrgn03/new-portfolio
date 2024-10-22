@@ -7,7 +7,7 @@ export function Project({ project }) {
   return (
     (<CardContainer className="inter-var scroll-snap-start">
       <CardBody
-        className="bg-[#171d26] relative group/card hover:shadow-2xl hover:shadow-accent/[0.2] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[37.5rem] rounded-xl p-4 sm:p-6 flex flex-col justify-between">
+        className="bg-[#171d26] relative group/card hover:shadow-2xl hover:shadow-accent/[0.2] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[26.75rem] md:h-[33.25rem] lg:h-[40rem] rounded-xl max-h-[95vh] p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <CardItem
           translateZ="50"
@@ -34,11 +34,11 @@ export function Project({ project }) {
           </div>
           <div className="flex justify-between items-center">
           <CardItem
-            translateZ={30}
+            translateZ={35}
             as="a"
             href={project.code}
             target="__blank"
-            className="pb-1 ml-4 md:text-md hover:text-accent text-sm font-normal text-white lg:text-lg">
+            className="pb-1 ml-4 md:text-sm hover:text-accent text-xs font-normal text-white lg:text-md">
             Source code →
           </CardItem>
           {/* <CardItem
@@ -50,7 +50,7 @@ export function Project({ project }) {
             Visit website
           </CardItem> */}
           <CardItem
-          translateZ={20}
+          translateZ={35}
           className="flex gap-2"
           >
             {project.techs.map((tech , index)=> {
@@ -58,8 +58,8 @@ export function Project({ project }) {
               key={index}
               alt="tech"
               src={tech}
-              height={22}
-              width={22}
+              height={21}
+              width={21}
               className="object-contain rounded-[3px]"
             />
           })}

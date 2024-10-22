@@ -26,8 +26,8 @@ export default function Services() {
     
     return (
         <section id="services" className="container mx-auto pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem]">
-            <h1 className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Services</h1>
-            <p className=" text-sm md:text-md lg:text-lg text-center xl:text-left">With expertise in UI/UX design, front-end development, and SEO, I provide customized solutions to bring your ideas to life and optimize your online presence.</p>
+            <motion.h1 viewport={{ once:true }} transition={{ duration: 0.5 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Services</motion.h1>
+            <motion.p viewport={{ once:true }} transition={{ duration: 0.5, delay: 0.25 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className=" text-sm md:text-md lg:text-lg text-center xl:text-left">With expertise in UI/UX design, front-end development, and SEO, I provide customized solutions to bring your ideas to life and optimize your online presence.</motion.p>
 
             <div className="">
                 {services.map((service) => {
@@ -71,7 +71,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                         <FaArrowRight className="inline ml-2 md:ml-3 xl:ml-4 -translate-x-6 hover:text-accent text-[0px] opacity-0 transition-all duration-500 group-hover/service:translate-x-0 group-hover/service:text-xl group-hover/service:opacity-100 hover:rotate-90 cursor-pointer" />
                     </a>
                 </h2>
-                <p className="xl:w-[44ch] text-sm md:text-md lg:text-lg text-center">{description}</p>
+                <p className=" text-xs md:text-sm lg:text-md text-center">{description}</p>
             </motion.div>
 
             <div className="relative group shrink-0 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">

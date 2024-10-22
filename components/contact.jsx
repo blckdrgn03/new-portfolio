@@ -9,12 +9,32 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false); // State to track form submission
     const [isError, setIsError] = useState(false)
     const errorMessage = "ERROR: An error occured while sending the message (Spam or random messages will be blocked automatically)."
+
+    const [isMdWindow, setIsMdwindow] = useState(true);
+
+    useEffect(() => {
+        setIsMdwindow(window.innerWidth >= 768);
+    }, [])
+
+    useEffect(() => {
+        
+        const handleResize = () => {
+            setIsMdwindow(window.innerWidth >= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
@@ -57,19 +77,19 @@ export default function Contact() {
             id="contact"
             className="mx-auto container pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem]"
         >
-            <h1 className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">
+            <motion.h1 viewport={{ once:true }} transition={{ duration: 0.5}} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">
                 Contact Me
-            </h1>
-            <p className="text-sm md:text-md lg:text-lg text-center xl:text-left">
+            </motion.h1>
+            <motion.p viewport={{ once:true }} transition={{ duration: 0.5, delay: 0.25 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="text-sm md:text-md lg:text-lg text-center xl:text-left">
                 I&apos;d love to hear from you! Whether you have a question, a project
                 in mind, or just want to say hello, feel free to reach out using the
                 form below or connect with me on social media.
-            </p>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-20">
+            </motion.p>
+            <div className="flex flex-col md:flex-row md:justify-center md:items-center mt-8 mb-20 md:gap-[2rem] lg:gap-[2.5rem] xl:gap-[5rem] w-full">
                 {submitted ? ( // Show success message if submitted
-                    <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-center px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl bg-[#171d26]">
-                        <h2 className="text-2xl text-center lg:text-4xl font-bold md:text-3xl text-white pb-1 sm:pb-2">The message was sent!</h2>
-                        <p className="text-sm md:text-md lg:text-lg text-center sm:pb-8 pb-6">
+                    <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-center px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl lg:shrink-0 bg-[#171d26]">
+                        <h2 className="text-2xl text-center lg:text-4xl font-semibold md:text-3xl text-white pb-1 sm:pb-2">The message was sent!</h2>
+                        <p className="text-xs md:text-sm lg:text-md text-center sm:pb-8 pb-6">
                             Thanks for choosing to work with me. You will get an email from me soon!
                         </p>
                     </div>
@@ -78,13 +98,13 @@ export default function Contact() {
                         action="https://formspree.io/f/myzyybwe"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
-                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
                     >
                         <div>
-                            <h2 className="text-2xl text-center xl:text-left lg:text-4xl font-bold md:text-3xl text-white pb-2 sm:pb-3">
+                            <h2 className="text-2xl text-center xl:text-left lg:text-4xl font-semibold md:text-3xl text-white pb-2 sm:pb-3">
                                 Let&apos;s work together!
                             </h2>
-                            <p className="text-sm md:text-md lg:text-lg sm:pb-8 pb-6">
+                            <p className="text-xs md:text-sm lg:text-md text-center xl:text-left sm:pb-8 pb-6">
                                 Let me know how you feel.
                             </p>
 
@@ -131,7 +151,14 @@ export default function Contact() {
                         </button>
                     </form>
                 )}
-                <div className="flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8">
+                <motion.div 
+                    initial={isMdWindow ? { marginLeft: "-300px", opacity: 0 } : { marginTop: "-200px", opacity: 0 }} 
+                    whileInView={isMdWindow ? { marginLeft: "0px", opacity: 1 } : { marginTop: "0px", opacity: 1 }} 
+                    viewport={isMdWindow ? { once: true } : { once: true, margin: "-200px 0px 0px 0px" }} 
+                    transition={{ duration: 0.75, delay: 0.25 }}
+                    key={isMdWindow}
+                    className="flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8 -z-20  md:w-1/3 lg:w-2/5 xl:w-1/2"
+                >
                     {isError && (
                         <div className="rounded-xl md:hidden text-sm selection:text-red-200 
                         bg-red-200 selection:bg-red-500 g-red-200 text-red-500 font-semibold p-3 -mt-4 mb-2">
@@ -213,7 +240,7 @@ export default function Contact() {
                             </span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

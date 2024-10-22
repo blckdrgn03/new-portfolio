@@ -67,7 +67,7 @@ export default function RealProjects() {
 
     return (
         <div ref={targetRef} className={` ${isDesktop && 'relative h-[400vh]'}`}>
-            <div className={`${isDesktop && 'sticky top-0 container flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll container flex  items-center my-8 scrollbar-none  scroll-smooth'}`}>
+            <div className={`${isDesktop && 'sticky top-0 container flex min-h-[100vh] items-center overflow-hidden'}  ${!isDesktop && 'overflow-x-scroll container flex  items-center my-8 scrollbar-thumb-accent/[0.1] scrollbar-track-transparent scrollbar-thin scroll-smooth'}`}>
                 <motion.div style={isDesktop && { x }} className="flex flex-row-reverse gap-4 h-auto md:gap-6">
                     {projects.map(project => {
                         return <Project key={project.id} project={project}/>;

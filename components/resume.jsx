@@ -51,7 +51,7 @@ export default function Resume() {
 
     
     return (
-        <section id="resume" className="mx-auto container pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem] pb-32">
+        <section id="resume" className="mx-auto container pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem]">
             <motion.h1 viewport={{ once:true }} transition={{ duration: 0.5 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Resume</motion.h1>
             <motion.p viewport={{ once:true }} transition={{ duration: 0.5, delay: 0.25 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="text-sm md:text-md lg:text-lg text-center xl:text-left mb-6 xl:mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi ipsum facilis explicabo inventore animi nam. Iusto nobis nemo maiores voluptate, numquam ex laudantium?</motion.p>
 

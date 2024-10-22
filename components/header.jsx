@@ -17,31 +17,31 @@ export default function Header() {
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
 
+
+
     const handleScroll = useCallback(() => {
         const currentPosition = window.scrollY;
         const sections = document.querySelectorAll('section');
 
-        if (currentPosition > 0) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
+        setIsScrolled(currentScrollY > 0);
 
-        sections.forEach((section) => {
+        for (const section of sections) {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
 
-            if (currentPosition >= sectionTop - 100 && currentPosition < sectionTop + sectionHeight) {
+            if (currentScrollY >= sectionTop - 100 && currentScrollY < sectionTop + sectionHeight) {
                 setActiveSection(section.getAttribute('id'));
+                break;
             }
-        });
+        }
 
-        // Hide/Show Navbar
         setIsVisible(currentPosition <= scrollPosition || currentPosition < 100);
         setScrollPosition(currentPosition);
     }, [scrollPosition]);
 
     useEffect(() => {
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll);
 
         return () => window.removeEventListener('scroll', handleScroll);

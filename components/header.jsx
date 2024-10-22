@@ -23,13 +23,13 @@ export default function Header() {
         const currentPosition = window.scrollY;
         const sections = document.querySelectorAll('section');
 
-        setIsScrolled(currentScrollY > 0);
+        setIsScrolled(currentPosition > 0);
 
         for (const section of sections) {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-
-            if (currentScrollY >= sectionTop - 100 && currentScrollY < sectionTop + sectionHeight) {
+    
+            if (currentPosition >= sectionTop - 100 && currentPosition < sectionTop + sectionHeight) {
                 setActiveSection(section.getAttribute('id'));
                 break;
             }

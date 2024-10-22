@@ -18,7 +18,14 @@ export default function Contact() {
     const errorMessage = "ERROR: An error occured while sending the message (Spam or random messages will be blocked automatically)."
 
     const [isMdWindow, setIsMdwindow] = useState(true);
+    const [inView, setInView] = useState(false);
 
+    function handleViewEnter() {
+        setTimeout(() => {
+
+            setInView(true)
+        }, 1250)
+    }
     useEffect(() => {
         setIsMdwindow(window.innerWidth >= 768);
     }, [])
@@ -98,7 +105,7 @@ export default function Contact() {
                         action="https://formspree.io/f/myzyybwe"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
-                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-3 py-6 sm:px-4 sm:py-7 md:px-6 md:py-9 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
                     >
                         <div>
                             <h2 className="text-2xl text-center xl:text-left lg:text-4xl font-semibold md:text-3xl text-white pb-2 sm:pb-3">
@@ -137,7 +144,7 @@ export default function Contact() {
                                     name="message"
                                     required
                                     autoComplete="off"
-                                    className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[10rem] resize-none"
+                                    className="bg-primary border-primary placeholder-slate/[0.4] focus:border-accent shadow-lg border-2 rounded-[8px] focus:text-accent py-2 px-8 outline-none transition-all transition-700 h-[8rem] md:h-[10rem] resize-none"
                                 ></textarea>
                                 {isError && (
                                     <div className="rounded-[8px] hidden md:block text-md selection:bg-red-500 border border-red-500 hover:bg-red-200 hover:border-red-200 transition-all duration-300 g-red-200 text-red-500 font-semibold p-3 lg:p-4">
@@ -146,7 +153,7 @@ export default function Contact() {
                                 )}
                             </div>
                         </div>
-                        <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-6 py-3 xl:text-lg self-end rounded-full hover:bg-accent-hover">
+                        <button type="submit" className="bg-accent text-primary text-sm lg:text-md font-semibold px-4 py-2 md:px-6 md:py-3 xl:text-lg self-end rounded-full hover:bg-accent-hover">
                             Send message
                         </button>
                     </form>
@@ -154,10 +161,11 @@ export default function Contact() {
                 <motion.div 
                     initial={isMdWindow ? { marginLeft: "-300px", opacity: 0 } : { marginTop: "-200px", opacity: 0 }} 
                     whileInView={isMdWindow ? { marginLeft: "0px", opacity: 1 } : { marginTop: "0px", opacity: 1 }} 
+                    onViewportEnter={handleViewEnter}
                     viewport={isMdWindow ? { once: true } : { once: true, margin: "-200px 0px 0px 0px" }} 
                     transition={{ duration: 0.75, delay: 0.25 }}
                     key={isMdWindow}
-                    className="flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8 -z-20  md:w-1/3 lg:w-2/5 xl:w-1/2"
+                    className={`flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8   md:w-1/3 lg:w-2/5 xl:w-1/21 ${inView ? "z-10 bg-red" : "-z-20"}`}
                 >
                     {isError && (
                         <div className="rounded-xl md:hidden text-sm selection:text-red-200 

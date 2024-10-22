@@ -33,7 +33,7 @@ const TabsContent = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-4 xl:mt-0 ring-offset-white rounded-xl focus-visible:outline-none py-5 md:py-6 md:px-4 lg:py-7 lg:px-5 px-3 focus-visible:ring-2 focus-visible:ring-slate focus-visible:ring-offset-2 bg-[#171d26] text-xs md:text-sm lg:text-md grow h-[85vh] xl:h-[35rem] overflow-scroll overflow-x-auto overflow-y-auto scrollbar-thumb-accent/[0.1] shadow-2xl scrollbar-track-transparent scrollbar-thin",
+      "mt-4 xl:mt-0 ring-offset-white rounded-xl focus-visible:outline-none py-5 md:py-6 md:px-4 lg:py-7 lg:px-5 px-3 focus-visible:ring-2 focus-visible:ring-slate focus-visible:ring-offset-2 bg-[#171d26] text-xs md:text-sm lg:text-md grow h-[85vh] xl:h-[35rem] overflow-scroll overflow-x-auto overflow-y-auto scrollbar-thumb-accent/[0.5] shadow-2xl scrollbar-track-transparent scrollbar-thin",
       className
     )}
     {...props} />

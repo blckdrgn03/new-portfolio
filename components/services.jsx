@@ -68,7 +68,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                 <h2 className=" md:text-2xl text-white text-xl lg:text-3xl font-semibold text-center pb-2 xl:pb-4">
                     {name}
                     <a href="#contact">
-                        <FaArrowRight className="inline ml-2 md:ml-3 xl:ml-4 -translate-x-6 hover:text-accent transition-all duration-300 text-xl hover:rotate-90 cursor-pointer" />
+                        <FaArrowRight className="inline ml-2 md:ml-3 xl:ml-4 hover:text-accent transition-all duration-300 text-xl hover:rotate-90 cursor-pointer" />
                     </a>
                 </h2>
                 <p className=" text-xs md:text-sm lg:text-md text-center">{description}</p>

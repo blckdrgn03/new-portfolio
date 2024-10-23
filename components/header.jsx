@@ -70,7 +70,7 @@ export default function Header() {
                         </a>
                     ))}
                 </nav>
-                <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
+                <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
             </div>
             <MobileMenu activeSection={activeSection} />
         </motion.header>
@@ -99,7 +99,7 @@ function MobileMenu({ activeSection }) {
                         ))}
                         
                     </nav>
-                    <Button className="font-semibold bg-accent text-xl md:text-2xl p-6 text-primary rounded-full hover:bg-accent-hover">Hire me</Button>
+                    <Button className="font-semibold bg-accent text-xl md:text-2xl p-6 text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
                 </div>
             </SheetContent>
         </Sheet>

@@ -7,16 +7,16 @@ export function Project({ project }) {
   return (
     (<CardContainer className="inter-var scroll-snap-start">
       <CardBody
-        className="bg-[#171d26] relative group/card hover:shadow-2xl hover:shadow-accent/[0.2] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[26.75rem] md:h-[33.25rem] lg:h-[40rem] rounded-xl max-h-[95vh] p-4 sm:p-6 flex flex-col justify-between">
+        className="bg-[#171d26] relative group/card hover:shadow-xl hover:shadow-accent/[0.1] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[26.75rem] md:h-[33.25rem] lg:h-[40rem] rounded-xl max-h-[95vh] p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <CardItem
-          translateZ="50"
+          translateZ="70"
           className="text-xl md:text-2xl text-white lg:text-3xl font-semibold text-white capitalize">
           {project.name}
         </CardItem>
         <CardItem
           as="p"
-          translateZ="60"
+          translateZ="50"
           className="text-xs md:text-sm lg:text-md max-w-sm mt-2 lg:mt-4 xl:mt-8 text-slate">
           {project.description}
         </CardItem>
@@ -34,7 +34,7 @@ export function Project({ project }) {
           </div>
           <div className="flex justify-between items-center">
           <CardItem
-            translateZ={35}
+            translateZ={50}
             as="a"
             href={project.code}
             target="__blank"
@@ -50,7 +50,7 @@ export function Project({ project }) {
             Visit website
           </CardItem> */}
           <CardItem
-          translateZ={35}
+          translateZ={50}
           className="flex gap-2"
           >
             {project.techs.map((tech , index)=> {

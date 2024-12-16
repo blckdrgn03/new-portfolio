@@ -15,10 +15,10 @@ export default function Page() {
             transition={{ duration: 0.75, delay: 0.25 }}
         >
             <Home />
-            <Services />
-            <Resume />
-            <Projects />
-            <Contact />
+{/*             <Services /> */}
+{/*             <Resume /> */}
+{/*             <Projects /> */}
+{/*             <Contact /> */}
         </motion.main>
     );
 }

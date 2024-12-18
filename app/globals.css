@@ -20,6 +20,10 @@
   .spinning-animation-x {
     animation: spin-x 32s linear infinite;
   }
+  .spinning-animation-xy {
+    animation: spin-x 32s linear infinite;
+    animation-delay: 4s;
+  }
   .spinning-animation-y {
     animation: spin-y 32s linear infinite;
     animation-delay: 4s;

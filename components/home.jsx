@@ -39,10 +39,10 @@ export default function Home() {
                         </div>
                         <div className="w-full -z-10 h-full absolute top-1/2 left-1/2  spinning-animation-y box-content p-[3.25rem] rounded-full">
                           <div className="w-full relative h-full">
-                            <Image height={35} width={35} src="/next.svg" className="absolute spinning-animation-x  xl:top-0 xl:left-0  -top-3 -left-3 " />
-                            <Image height={35} width={35} src="/framer.svg" className="absolute spinning-animation-x  xl:top-0 xl:right-0  -top-3 -right-3 " />
-                            <Image height={35} width={35} src="/git.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
-                            <Image height={35} width={35} src="/figma.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
+                            <Image height={35} width={35} src="/next.svg" className="absolute spinning-animation-xy  xl:top-0 xl:left-0  -top-3 -left-3 " />
+                            <Image height={35} width={35} src="/framer.svg" className="absolute spinning-animation-xy  xl:top-0 xl:right-0  -top-3 -right-3 " />
+                            <Image height={35} width={35} src="/git.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
+                            <Image height={35} width={35} src="/figma.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
                             
                           </div> 
                         </div>

@@ -43,12 +43,12 @@
 }
 @keyframes spin-y {
   from {
-    opacity: 0.66;
+    opacity: 0.5;
     transform: rotate(0deg);
     translate: -50% -50%;
   }
   to {
-    opacity: 0.66;
+    opacity: 0.5;
     transform: rotate(360deg);
     translate: -50% -50%;
   }

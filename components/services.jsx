@@ -65,7 +65,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
             <motion.div 
                 initial={isXlWindow ? (name != "Front-end Development" ? { marginRight: "-50%", opacity: 0 } : { marginLeft: "-50%", opacity: 0 }) : { marginTop: "-100px", opacity: 0 }} 
                 animate={isInView ? (isXlWindow ? (name != "Front-end Development" ? { marginRight: "0px", opacity: 1 } : { marginLeft: "0px", opacity: 1 }) : { marginTop: "0px", opacity: 1 }) : {}}
-                transition={{ duration: 0.75, delay: 0.25 }}
+                transition={{ duration: 0.75 }}
                 key={isXlWindow}
                 className="group/service z-10 xl:w-1/2 shrink" 
             >
@@ -79,8 +79,8 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
             </motion.div>
 
             <div className="relative group shrink-0 z-20 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
-                <motion.div ref={triggerRef} onViewportEnter={(e) => {handleView(e, id)}} className="absolute bottom-1/3  h-1 bg-transparent"></motion.div>
-                <div className={`absolute shadow-2xl transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
+                <motion.div ref={triggerRef} onViewportEnter={(e) => {handleView(e, id)}} className="absolute bottom-0 xl:bottom-1/3  h-1 bg-transparent"></motion.div>
+                <div className={`absolute shadow-2xl transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-2 -left-2 right-2 bottom-2 md:-top-4 md:-left-4 md:right-4 md:bottom-4 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-4 md:group-hover:left-4 md:group-hover:-bottom-4 md:group-hover:-right-4 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={bottomImage.src}
                         alt={bottomImage.alt}
@@ -89,7 +89,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                         className="object-cover object-center"
                     />
                 </div> 
-                <div className={`rounded-[8px] shadow-2xl transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:brightness-90 group-hover:-top-2 group-hover:-left-2 md:top-3 md:left-3 md:-right-3 md:-bottom-3 group-hover:bottom-2 group-hover:right-2 top-2 left-2 -right-2 -bottom-2 md:group-hover:-top-3 md:delay-300 md:group-hover:-left-3 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-3 md:group-hover:right-3" : "top-0 left-0 right-0 bottom-0" }`}>
+                <div className={`rounded-[8px] shadow-2xl transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:brightness-90 group-hover:-top-2 group-hover:-left-2 md:top-4 md:left-4 md:-right-4 md:-bottom-4 group-hover:bottom-2 group-hover:right-2 top-2 left-2 -right-2 -bottom-2 md:group-hover:-top-4 md:delay-300 md:group-hover:-left-4 xl:group-hover:-top-4 xl:group-hover:-left-4 xl:group-hover:bottom-4 xl:group-hover:right-4 xl:top-4 xl:left-4 xl:-right-4 xl:-bottom-4 md:group-hover:bottom-4 md:group-hover:right-4" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={topImage.src}
                         alt={topImage.alt}

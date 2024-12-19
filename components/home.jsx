@@ -50,18 +50,18 @@ export default function Home() {
                         <div className="w-full -z-20 h-full absolute top-1/2 left-1/2  spinning-animation box-content opacity-35 border-accent/[0.5] border-[0.5px] p-[2.2rem] md:p-[3.25rem] xl:p-[3.8rem] rounded-full opacity-66">
                           <div className="w-full relative h-full">
                             <Image height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/html.svg" className="absolute spinning-animation-x xl:top-0 xl:left-0 -top-3 -left-3 " />
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/css.svg" className="absolute spinning-animation-x  xl:top-0 xl:right-0  -top-3 -right-3 " />
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/javascript.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/react.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/javascript.svg" className="absolute spinning-animation-x  xl:top-0 xl:right-0  -top-3 -right-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/react.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/framer.svg" className="absolute spinning-animation-x  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
                             
                           </div> 
                         </div>
                         <div className="w-full -z-10 h-full absolute top-1/2 left-1/2  spinning-animation-y box-content p-[3.25rem] rounded-full">
                           <div className="w-full relative h-full">
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/next.svg" className="absolute spinning-animation-xy  xl:top-0 xl:left-0  -top-3 -left-3 " />
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/framer.svg" className="absolute spinning-animation-xy  xl:top-0 xl:right-0  -top-3 -right-3 " />
-                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/git.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
-                            <Image   height={windowSize ? 32 : 27} width={windowSize ? 30 : 25} src="/figma.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/css.svg" className="absolute spinning-animation-xy  xl:top-0 xl:left-0  -top-3 -left-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/typescript.svg" className="absolute spinning-animation-xy  xl:top-0 xl:right-0  -top-3 -right-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/next.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:right-0  -bottom-3 -right-3 " />
+                            <Image   height={windowSize ? 35 : 30} width={windowSize ? 35 : 30} src="/git.svg" className="absolute spinning-animation-xy  xl:bottom-0 xl:left-0  -bottom-3 -left-3 " />
                             
                           </div> 
                         </div>

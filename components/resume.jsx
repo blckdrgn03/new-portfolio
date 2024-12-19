@@ -195,15 +195,18 @@ const techData = [
     ],
     [
       ["JavaScript", "A programming language that adds interactivity to web pages.", "/javascript.svg"],
-      ["React", "A JavaScript library for building user interfaces.", "/react.svg"]
+      ["TypeScript", "A strongly typed programming language that builds on JavaScript.", "/typescript.svg"],
+      
     ],
     [
+        ["React.js", "A JavaScript library for building user interfaces.", "/react.svg"],
       ["Next.js", "A React framework for server-rendered or statically generated applications.", "/next.svg"],
-      ["Framer Motion", "An animation library for React to create complex animations.", "/framer.svg"]
+      
     ],
     [
-      ["Figma", "A web-based tool for interface design and prototyping.", "/figma.svg"],
-      ["Git", "A version control system for tracking changes in source code.", "/git.svg"]
+        
+        ["Framer Motion", "An animation library for React to create complex animations.", "/framer.svg"],
+        ["Git", "A version control system for tracking changes in source code.", "/git.svg"],
     ]
   ];
   

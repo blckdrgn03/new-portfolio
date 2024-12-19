@@ -15,18 +15,18 @@
   }
 
   .spinning-animation {
-    animation: spin 32s linear infinite;
+    animation: spin 60s linear infinite;
   }
   .spinning-animation-x {
-    animation: spin-x 32s linear infinite;
+    animation: spin-x 60s linear infinite;
   }
   .spinning-animation-xy {
-    animation: spin-x 32s linear infinite;
-    animation-delay: 4s;
+    animation: spin-x 60s linear infinite;
+    animation-delay: 7.5s;
   }
   .spinning-animation-y {
-    animation: spin-y 32s linear infinite;
-    animation-delay: 4s;
+    animation: spin-y 60s linear infinite;
+    animation-delay: 7.5s;
     opacity: 0;
     transition: opacity 1s;
   }
@@ -43,12 +43,12 @@
 }
 @keyframes spin-y {
   from {
-    opacity: 0.5;
+    opacity: 0.35;
     transform: rotate(0deg);
     translate: -50% -50%;
   }
   to {
-    opacity: 0.5;
+    opacity: 0.35;
     transform: rotate(360deg);
     translate: -50% -50%;
   }

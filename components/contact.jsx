@@ -3,6 +3,7 @@
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { useRef } from "react";
 import {
     Tooltip,
     TooltipContent,
@@ -10,9 +11,11 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 export default function Contact() {
+    const trigger = useRef(null);
+    const isInView = useInView(trigger, {once: true});
     const [submitted, setSubmitted] = useState(false); // State to track form submission
     const [isError, setIsError] = useState(false)
     const errorMessage = "ERROR: An error occured while sending the message (Spam or random messages will be blocked automatically)."
@@ -105,8 +108,9 @@ export default function Contact() {
                         action="https://formspree.io/f/myzyybwe"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
-                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-3 py-6 sm:px-4 sm:py-7 md:px-6 md:py-9 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26]"
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-3 py-6 sm:px-4 sm:py-7 md:px-6 md:py-9 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26] relative"
                     >
+                        <div ref={trigger} className="absolute h-1 top-2/3"></div>
                         <div>
                             <h2 className="text-2xl text-center xl:text-left lg:text-4xl font-semibold md:text-3xl text-white pb-2 sm:pb-3">
                                 Let&apos;s work together!
@@ -160,12 +164,12 @@ export default function Contact() {
                 )}
                 <motion.div 
                     initial={isMdWindow ? { marginLeft: "-300px", opacity: 0 } : { marginTop: "-200px", opacity: 0 }} 
-                    whileInView={isMdWindow ? { marginLeft: "0px", opacity: 1 } : { marginTop: "0px", opacity: 1 }} 
+                    animate={isInView ? (isMdWindow ? { marginLeft: "0px", opacity: 1 } : { marginTop: "0px", opacity: 1 }) : {}} 
                     onViewportEnter={handleViewEnter}
-                    viewport={isMdWindow ? { once: true } : { once: true, margin: "-200px 0px 0px 0px" }} 
+                     
                     transition={{ duration: 0.75, delay: 0.25 }}
                     key={isMdWindow}
-                    className={`flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8   md:w-1/3 lg:w-2/5 xl:w-1/21 ${inView ? "z-10 bg-red" : "-z-20"}`}
+                    className={`flex flex-col mt-2 gap-3 md:gap-6 xl:gap-8   md:w-1/3 lg:w-2/5 xl:w-1/21 ${isInView ? "z-10 bg-red" : "-z-20"}`}
                 >
                     {isError && (
                         <div className="rounded-xl md:hidden text-sm selection:text-red-200 

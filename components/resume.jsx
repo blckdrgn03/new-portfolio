@@ -53,7 +53,7 @@ export default function Resume() {
     return (
         <section id="resume" className="mx-auto container pt-[1rem] mt-[4rem] md:mt-[6.5rem] lg:mt-[9rem] xl:pt-[2rem] xl:mt-[10.5rem]">
             <motion.h1 viewport={{ once:true }} transition={{ duration: 0.5 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="md:text-4xl text-white text-3xl lg:text-5xl font-bold text-center xl:text-left pb-4 xl:pb-8">Resume</motion.h1>
-            <motion.p viewport={{ once:true }} transition={{ duration: 0.5, delay: 0.25 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="text-sm md:text-md lg:text-lg text-center xl:text-left mb-6 xl:mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi ipsum facilis explicabo inventore animi nam. Iusto nobis nemo maiores voluptate, numquam ex laudantium?</motion.p>
+            <motion.p viewport={{ once:true }} transition={{ duration: 0.5, delay: 0.25 }} initial={{opacity: 0, x: "-100%"}} whileInView={{opacity: 1, x: "0px"}} className="text-sm md:text-md lg:text-lg text-center xl:text-left mb-6 xl:mb-12">I am just a highschool student who loves to code! I have 2 years of experience of building cool projects such as weather app, portfoio, dashboard, e-commerce site etc. My tech stack is also very flexible.</motion.p>
 
             <Tabs defaultValue="about" className="xl:flex xl:gap-5">
                 <TabsList className="">
@@ -65,7 +65,7 @@ export default function Resume() {
                 <TabsContent value="about">
                     <div className="">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">About Me</h2>
-                        <p className="mb-8 text-center">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
+                        <p className="mb-8 text-center">I am a 16 year old student. I live in Bangladesh. I love painting. I also love cats and I have 2 myself!</p>
 
                         <div className="flex flex-wrap gap-3 md:gap-4">
                             {aboutData.map((data, i) => {
@@ -88,7 +88,7 @@ export default function Resume() {
                 <TabsContent value="education">
                     <div className="">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Education</h2>
-                        <p className="mb-8 text-center ">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
+                        <p className="mb-8 text-center ">Besides school I am learning to code. Specifically frontend development. I want to learn a lot more about programming in general.</p>
                         <div className="flex flex-col gap-3 md:gap-4">
                             <div className="flex flex-col md:flex-row gap-3 md:gap-4">
                                 <div className="rounded-[8px] w-full md:w-[calc(50%-8px)] hover:md:w-[calc(66%-8px)] hover:md:shrink-0 py-3 border border-1 shadow-xl px-1 bg-accent/[0.05] transition-all duration-300 hover:bg-accent/[0.1] border-accent/[0.25] px-2 ">
@@ -120,7 +120,7 @@ export default function Resume() {
                 <TabsContent value="experience">
                     <div className="">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Experience</h2>
-                        <p className="mb-8 text-center">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
+                        <p className="mb-8 text-center">I really don't have any real world experience. But I have experience in building projects that mimic the real world websites.</p>
                         <div className="flex flex-col flex-wrap gap-3 md:gap-4">
                             <div className="rounded-[8px] py-3 border border-1 shadow-xl bg-accent/[0.05] transition-all px-1  duration-300 hover:bg-accent/[0.1] border-accent/[0.25]">
                                 <h3 className="text-md text-white text-center md:text-lg lg:text-xl">
@@ -144,7 +144,7 @@ export default function Resume() {
                 <TabsContent value="technology">
                     <div className="">
                         <h2 className="text-2xl lg:text-4xl font-bold text-center md:text-3xl text-white pb-2 sm:pb-3">Technology</h2>
-                        <p className="mb-8 text-center ">tetur adipisicing elit. Maxime odio deleniti amet iusto, omnis, laudantium quasi</p>
+                        <p className="mb-8 text-center ">I have the most flexible tech stack possible. From simple HTML to Next.js! These are needed to build fast, secure and modern websites </p>
                         
                         <div className="flex flex-col gap-3 md:gap-4">
                             {techData.map((tech, i) => {

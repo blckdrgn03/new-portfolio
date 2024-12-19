@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 export default function Services() {
     const [windowSize, setWindowSize] = useState(true);
+   
 
     useEffect(() => {
         setWindowSize(window.innerWidth >= 1200);
@@ -54,13 +55,16 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
             }))
         }, 1250)
     } 
+ // Ref for the triggering element
+ const triggerRef = useRef(null);
 
+ // Check if the trigger element is in view
+ const isInView = useInView(triggerRef, { once: true });
     return (
         <div className="flex mx-auto pt-12 md:pt-16 xl:pt-24 xl:gap-16 flex-col-reverse odd:xl:flex-row even:xl:flex-row-reverse xl:justify-center items-center">
             <motion.div 
                 initial={isXlWindow ? (name != "Front-end Development" ? { marginRight: "-50%", opacity: 0 } : { marginLeft: "-50%", opacity: 0 }) : { marginTop: "-100px", opacity: 0 }} 
-                whileInView={isXlWindow ? (name != "Front-end Development" ? { marginRight: "0px", opacity: 1 } : { marginLeft: "0px", opacity: 1 }) : { marginTop: "0px", opacity: 1 }} 
-                viewport={isXlWindow ? { once: true } : { once: true, margin: "-100px 0px 0px 0px" }} 
+                animate={isInView ? (isXlWindow ? (name != "Front-end Development" ? { marginRight: "0px", opacity: 1 } : { marginLeft: "0px", opacity: 1 }) : { marginTop: "0px", opacity: 1 }) : {}}
                 transition={{ duration: 0.75, delay: 0.25 }}
                 key={isXlWindow}
                 className="group/service z-10 xl:w-1/2 shrink" 
@@ -75,7 +79,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
             </motion.div>
 
             <div className="relative group shrink-0 z-20 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
-                <motion.div onViewportEnter={(e) => {handleView(e, id)}} className="absolute top-1/2 left-1/2 h-2 w-2 bg-transparent -z-50"></motion.div>
+                <motion.div ref={triggerRef} onViewportEnter={(e) => {handleView(e, id)}} className="absolute bottom-1/3  h-1 bg-transparent"></motion.div>
                 <div className={`absolute shadow-2xl transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-2 -left-2 right-2 bottom-2 md:-top-3 md:-left-3 md:right-3 md:bottom-3 xl:-top-4 xl:-left-4 xl:right-4 xl:bottom-4 group-hover:top-2 group-hover:left-2 group-hover:-bottom-2 group-hover:-right-2 md:group-hover:top-3 md:group-hover:left-3 md:group-hover:-bottom-3 md:group-hover:-right-3 xl:group-hover:top-4 xl:group-hover:left-4 xl:group-hover:-bottom-4 xl:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={bottomImage.src}
@@ -103,22 +107,22 @@ const services = [
     {
         name: "UI/UX Design",
         description: "I design intuitive and visually appealing user interfaces that enhance user experience while balancing aesthetics and functionality.",
-        topImage: { alt: "UI/UX design illustration featuring Figma interface", src: "/weather.png" },
-        bottomImage: { alt: "UI/UX design tools showcased with Figma logo", src: "/todo.png" },
+        topImage: { alt: "UI/UX design illustration featuring Figma interface", src: "/b.png" },
+        bottomImage: { alt: "UI/UX design tools showcased with Figma logo", src: "/a.png" },
         id: 0,
     },
     {
         name: "Front-end Development",
         description: "I develop responsive and dynamic front-end applications with clean, efficient code, ensuring seamless interaction across devices.",
-        topImage: { alt: "Front-end development screenshot of a weather app", src: "/weather.png" },
-        bottomImage: { alt: "Weather app interface showing real-time forecasts", src: "/todo.png" },
+        topImage: { alt: "Front-end development screenshot of a weather app", src: "/b.png" },
+        bottomImage: { alt: "Weather app interface showing real-time forecasts", src: "/a.png" },
         id: 1,
     },
     {
         name: "SEO",
         description: "I optimize websites to rank higher in search engines, increasing visibility and driving organic traffic with strategic SEO practices.",
-        topImage: { alt: "SEO optimization with ranking and search analytics", src: "/weather.png" },
-        bottomImage: { alt: "Website traffic analytics showing SEO improvement", src: "/todo.png" },
+        topImage: { alt: "SEO optimization with ranking and search analytics", src: "/b.png" },
+        bottomImage: { alt: "Website traffic analytics showing SEO improvement", src: "/a.png" },
         id: 2,
     },
 ];

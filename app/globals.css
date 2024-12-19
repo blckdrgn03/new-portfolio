@@ -22,12 +22,12 @@
   }
   .spinning-animation-xy {
     animation: spin-x 60s linear infinite;
-    animation-delay: 7.5s;
+    animation-delay: -7.5s;
   }
   .spinning-animation-y {
-    animation: spin-y 60s linear infinite;
-    animation-delay: 7.5s;
-    opacity: 0;
+    animation: spin 60s linear infinite;
+    animation-delay: -7.5s;
+    opacity: 0.35;
     transition: opacity 1s;
   }
 
@@ -41,18 +41,7 @@
     translate: -50% -50%;
   }
 }
-@keyframes spin-y {
-  from {
-    opacity: 0.35;
-    transform: rotate(0deg);
-    translate: -50% -50%;
-  }
-  to {
-    opacity: 0.35;
-    transform: rotate(360deg);
-    translate: -50% -50%;
-  }
-}
+
 @keyframes spin-x {
   from {
     transform: rotate(0deg);

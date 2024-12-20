@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button";
 import { HiMenuAlt4 } from "react-icons/hi";
+import { Theme, ThemeMoblie } from "@/components/ui/theme";
 import { usePathname } from 'next/navigation';
 import {
   Sheet,
@@ -69,7 +70,9 @@ export default function Header() {
                             {link.name}
                         </a>
                     ))}
+                    <Theme />
                 </nav>
+                
                 <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
             </div>
             <MobileMenu activeSection={activeSection} />
@@ -97,9 +100,10 @@ function MobileMenu({ activeSection }) {
                                 {link.name}
                             </a>
                         ))}
-                        
+                        <ThemeMoblie />
                     </nav>
-                    <Button className="font-semibold bg-accent text-xl md:text-2xl p-6 text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
+                    
+                    <Button className="font-semibold bg-accent text-xl md:text-2xl py-6 px-7 md:px-8 md:py-7 text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
                 </div>
             </SheetContent>
         </Sheet>

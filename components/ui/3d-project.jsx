@@ -7,7 +7,7 @@ export function Project({ project }) {
   return (
     (<CardContainer className="inter-var scroll-snap-start">
       <CardBody
-        className="bg-[#171d26] relative group/card hover:shadow-xl hover:shadow-accent/[0.1] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[26.75rem] md:h-[33.25rem] lg:h-[40rem] rounded-xl max-h-[95vh] p-4 sm:p-6 flex flex-col justify-between">
+        className="bg-slate-dark relative group/card hover:shadow-xl hover:shadow-accent/[0.1] w-[20rem] md:w-[25rem] lg:w-[30rem] h-[26.75rem] md:h-[33.25rem] lg:h-[40rem] rounded-xl max-h-[95vh] p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <CardItem
           translateZ="70"

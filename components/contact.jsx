@@ -97,7 +97,7 @@ export default function Contact() {
             </motion.p>
             <div className="flex flex-col md:flex-row md:justify-center md:items-center mt-8 mb-20 md:gap-[2rem] lg:gap-[2.5rem] xl:gap-[5rem] w-full">
                 {submitted ? ( // Show success message if submitted
-                    <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-center px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl lg:shrink-0 bg-[#171d26]">
+                    <div className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex flex-col justify-center px-4 pt-8 pb-5 md:px-6 md:pt-10 md:pb-10 aspect-[5/7] rounded-xl lg:shrink-0 bg-slate-dark">
                         <h2 className="text-2xl text-center lg:text-4xl font-semibold md:text-3xl text-white pb-1 sm:pb-2">The message was sent!</h2>
                         <p className="text-xs md:text-sm lg:text-md text-center sm:pb-8 pb-6">
                             Thanks for choosing to work with me. You will get an email from me soon!
@@ -108,7 +108,7 @@ export default function Contact() {
                         action="https://formspree.io/f/myzyybwe"
                         method="POST"
                         onSubmit={handleSubmit} // Attach the submit handler
-                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-3 py-6 sm:px-4 sm:py-7 md:px-6 md:py-9 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-[#171d26] relative"
+                        className="mb-8 md:w-2/3 lg:w-3/5 xl:w-1/2 md:mb-0 flex lg:shrink-0 flex-col justify-between px-3 py-6 sm:px-4 sm:py-7 md:px-6 md:py-9 aspect-[5/7] lg:aspect-[55/70] rounded-xl bg-slate-dark relative"
                     >
                         <div ref={trigger} className="absolute h-1 top-2/3"></div>
                         <div>

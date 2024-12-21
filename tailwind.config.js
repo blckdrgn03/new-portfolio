@@ -24,21 +24,13 @@ module.exports = {
 		colors: {
 		  primary: "var(--primary-color)",
 		  accent: {
-			DEFAULT: "var(--accent-color)",
-			hover: "var(--accent-hover)",
+			DEFAULT: "rgba(var(--accent-color), <alpha-value>)",
+			hover: "rgba(var(--accent-color), 0.7)",
 		  },
 		  slate: {
 			DEFAULT: "var(--slate-color)",
-			50: "var(--slate-color)", 
-			100: "var(--slate-color)",
-			200: "var(--slate-color)",
-			300: "var(--slate-color)",
-			400: "var(--slate-color)",
-			500: "var(--slate-color)",
-			600: "var(--slate-color)",
-			700: "var(--slate-color)",
-			800: "var(--slate-color)",
-			900: "var(--slate-color)",
+			dark: "var(--slate-dark-color)", 
+			
 		  },
 		},
 		borderRadius: {

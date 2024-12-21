@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --accent-color: hsl(198, 93%, 55%);
-  --accent-hover: hsl(198, 93%, 75%);
+  --accent-color: 34, 183, 247;
+  
   --primary-color: hsl(215, 74%, 4%);
   --slate-color: #94abb8;
+  --slate-dark-color: #171d26;
 }
 
 @layer base {
@@ -34,8 +35,6 @@
   .spinning-animation-y {
     animation: spin 60s linear infinite;
     animation-delay: -7.5s;
-    opacity: 0.35;
-    transition: opacity 1s;
   }
 
 @keyframes spin {

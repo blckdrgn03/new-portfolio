@@ -10,6 +10,7 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
   import { FaPalette } from "react-icons/fa";
+  import { useState } from "react";
    
   export function Theme() {
     return (
@@ -26,6 +27,29 @@ import {
     )
   }
   export function ThemeMoblie() {
+    const [theme, setTheme] = useState('dark');
+    const [accent, setAccent] = useState('#22b7f7');
+
+    
+
+    const changeAccent = (acn, prm, slt) => {
+      setAccent(acn);
+      
+      document.documentElement.style.setProperty(
+        '--accent-color',
+        acn
+      ); 
+      document.documentElement.style.setProperty(
+        '--primary-color',
+        prm
+      ); 
+      document.documentElement.style.setProperty(
+        '--slate-color',
+        slt
+      );
+      
+    };
+    
     return (
       <Sheet>
         <SheetTrigger asChild>
@@ -37,14 +61,14 @@ import {
               <h1 className="text-4xl font-bold pb-6 md:text-5xl text-white">Theme</h1>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
-                  <input type="radio" name="theme" id="light" className="peer hidden" />
+                  <input type="radio" onClick={() => {setTheme('light')}} checked={'light' == theme} name="theme" id="light" className="peer hidden" />
                   <label htmlFor="light" className="h-5 w-5 rounded-full border-2 border-accent peer-checked:bg-accent transition-all duration-300 cursor-pointer"></label>
                   
-                  <div className="peer-checked:text-accent transition-all peer-checked:font-semibold duration-300 text-xl">Light</div>
+                  <div className="peer-checked:text-accent transition-all peer-checked:font-semibold duration-300 text-xl text-slate">Light</div>
                 </div>
 
                 <div className="flex gap-2 items-center">
-                  <input type="radio" name="theme" id="dark" className="peer hidden" />
+                  <input type="radio" onClick={() => {setTheme('dark')}} checked={'dark' == theme} name="theme" id="dark" className="peer hidden" />
                   <label htmlFor="dark" className="h-5 w-5 rounded-full border-2 border-accent peer-checked:bg-accent transition-all duration-300 cursor-pointer"></label>
                   
                   <div className="peer-checked:text-accent transition-all peer-checked:font-semibold text-xl duration-300">Dark</div>
@@ -57,34 +81,34 @@ import {
               <div className="flex gap-3 justify-center pb-3">
                 
                 <div className="">
-                  <input type="radio" name="accent" id="blue" className="peer hidden" />
+                  <input type="radio" name="accent" id="blue" onClick={() => changeAccent('#22b7f7', '#030912', '#94abb8')} checked={'#22b7f7' == accent} className="peer hidden" />
                   <label htmlFor="blue" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#22b7f7] bg-[#22b7f7] transition-all duration-300 cursor-pointer"></label>
                   
                 </div>
                 <div className="">
-                  <input type="radio" name="accent" id="red" className="peer hidden" />
+                  <input type="radio" name="accent" id="red" onClick={() => changeAccent('#ef4444', '#0d0202', '#b89494')} checked={'#ef4444' == accent} className="peer hidden" />
                   <label htmlFor="red" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#ef4444] bg-[#ef4444] transition-all duration-300 cursor-pointer"></label>
                   
                 </div>
                 <div className="">
-                  <input type="radio" name="accent" id="green" className="peer hidden" />
+                  <input type="radio" name="accent" id="green" onClick={() => changeAccent('#22c55e', '#020e07', '#94b896')} checked={'#22c55e' == accent} className="peer hidden" />
                   <label htmlFor="green" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#22c55e] bg-[#22c55e] transition-all duration-300 cursor-pointer"></label>
                   
                 </div>
               </div>
               <div className="flex gap-3 justify-center">
                 <div className="">
-                  <input type="radio" name="accent" id="yellow" className="peer hidden" />
+                  <input type="radio" name="accent" id="yellow" onClick={() => changeAccent('#eab308', '#0e0701', '#b8b794')} checked={'#eab308' == accent} className="peer hidden" />
                   <label htmlFor="yellow" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#eab308] bg-[#eab308] transition-all duration-300 cursor-pointer"></label>
                   
                 </div>
                 <div className="">
-                  <input type="radio" name="accent" id="violet" className="peer hidden" />
-                  <label htmlFor="violet" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#8b5cf6] bg-[#8b5cf6] transition-all duration-300 cursor-pointer"></label>
+                  <input type="radio" name="accent" id="violet" onClick={() => changeAccent('#a855f7', '#09010e', '#a494b8')} checked={'#a855f7' == accent} className="peer hidden" />
+                  <label htmlFor="violet" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#a855f7] bg-[#a855f7] transition-all duration-300 cursor-pointer"></label>
                   
                 </div>
                 <div className="">
-                  <input type="radio" name="accent" id="pink" className="peer hidden" />
+                  <input type="radio" name="accent" id="pink" onClick={() => changeAccent('#ec4899', '#0e0106', '#b894b0')} checked={'#ec4899' == accent} className="peer hidden" />
                   <label htmlFor="pink" className="h-12 w-12 block rounded-full border-4 border-primary peer-checked:ring-2 peer-checked:ring-[#ec4899] bg-[#ec4899] transition-all duration-300 cursor-pointer"></label>
                  
                 </div>

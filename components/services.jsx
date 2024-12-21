@@ -80,7 +80,7 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
 
             <div className="relative group shrink-0 z-20 aspect-[7/5] w-[90%] xl:w-[50%] my-6 md:my-8 xl:my-0">
                 <motion.div ref={triggerRef} onViewportEnter={(e) => {handleView(e, id)}} className="absolute bottom-0 xl:bottom-1/3  h-1 bg-transparent"></motion.div>
-                <div className={`absolute shadow-2xl transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-3 -left-3 right-3 bottom-3 md:-top-4 md:-left-4 md:right-4 md:bottom-4 group-hover:top-3 group-hover:left-3 group-hover:-bottom-3 group-hover:-right-3 md:group-hover:top-4 md:group-hover:left-4 md:group-hover:-bottom-4 md:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
+                <div className={`absolute shadow-2xl bg-accent transition-all duration-500 md:delay-300 rounded-[8px] overflow-hidden ${inView[id] ? "group-hover:brightness-100 brightness-90  -top-3 -left-3 right-3 bottom-3 md:-top-4 md:-left-4 md:right-4 md:bottom-4 group-hover:top-3 group-hover:left-3 group-hover:-bottom-3 group-hover:-right-3 md:group-hover:top-4 md:group-hover:left-4 md:group-hover:-bottom-4 md:group-hover:-right-4 group-hover:z-30" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={bottomImage.src}
                         alt={bottomImage.alt}
@@ -89,13 +89,13 @@ const Service = ({ name, description, topImage, bottomImage, isXlWindow, id }) =
                         className="object-cover object-center"
                     />
                 </div> 
-                <div className={`rounded-[8px] shadow-2xl transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:brightness-90 group-hover:-top-3 group-hover:-left-3 md:top-4 md:left-4 md:-right-4 md:-bottom-4 group-hover:bottom-3 group-hover:right-3 top-3 left-3 -right-3 -bottom-3 md:group-hover:-top-4 md:delay-300 md:group-hover:-left-4   md:group-hover:bottom-4 md:group-hover:right-4" : "top-0 left-0 right-0 bottom-0" }`}>
+                <div className={`rounded-[8px] bg-slate shadow-2xl transition-all duration-500 absolute  z-20 overflow-hidden ${inView[id] ? "group-hover:brightness-90 group-hover:-top-3 group-hover:-left-3 md:top-4 md:left-4 md:-right-4 md:-bottom-4 group-hover:bottom-3 group-hover:right-3 top-3 left-3 -right-3 -bottom-3 md:group-hover:-top-4 md:delay-300 md:group-hover:-left-4   md:group-hover:bottom-4 md:group-hover:right-4" : "top-0 left-0 right-0 bottom-0" }`}>
                     <Image
                         src={topImage.src}
                         alt={topImage.alt}
                         fill
                         quality={100}
-                        className="object-cover object-center"
+                        className="object-cover object-center "
                     />
                 </div>
             </div>
@@ -107,21 +107,21 @@ const services = [
     {
         name: "UI/UX Design",
         description: "I design intuitive and visually appealing user interfaces that enhance user experience while balancing aesthetics and functionality.",
-        topImage: { alt: "UI/UX design illustration featuring Figma interface", src: "/b.png" },
+        topImage: { alt: "UI/UX design illustration featuring Figma interface", src: "/a.png" },
         bottomImage: { alt: "UI/UX design tools showcased with Figma logo", src: "/a.png" },
         id: 0,
     },
     {
         name: "Front-end Development",
         description: "I develop responsive and dynamic front-end applications with clean, efficient code, ensuring seamless interaction across devices.",
-        topImage: { alt: "Front-end development screenshot of a weather app", src: "/b.png" },
+        topImage: { alt: "Front-end development screenshot of a weather app", src: "/a.png" },
         bottomImage: { alt: "Weather app interface showing real-time forecasts", src: "/a.png" },
         id: 1,
     },
     {
         name: "SEO",
         description: "I optimize websites to rank higher in search engines, increasing visibility and driving organic traffic with strategic SEO practices.",
-        topImage: { alt: "SEO optimization with ranking and search analytics", src: "/b.png" },
+        topImage: { alt: "SEO optimization with ranking and search analytics", src: "/a.png" },
         bottomImage: { alt: "Website traffic analytics showing SEO improvement", src: "/a.png" },
         id: 2,
     },

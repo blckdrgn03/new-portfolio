@@ -73,7 +73,7 @@ export default function Header() {
                     <Theme />
                 </nav>
                 
-                <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
+                {/* <Button className="font-semibold bg-accent text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button> */}
             </div>
             <MobileMenu activeSection={activeSection} />
         </motion.header>
@@ -89,7 +89,7 @@ function MobileMenu({ activeSection }) {
                 <HiMenuAlt4 className="text-4xl cursor-pointer xl:hidden"/>
             </SheetTrigger>
             <SheetContent>
-                <div className="flex h-screen flex-col justify-center items-center gap-16 py-4">
+                <div className="flex h-screen flex-col justify-center items-center relative gap-16 py-4">
                     <nav className="flex flex-col justify-center items-center gap-6">
                         {links.map((link, i) => (
                             <a 
@@ -103,7 +103,7 @@ function MobileMenu({ activeSection }) {
                         <ThemeMoblie />
                     </nav>
                     
-                    <Button className="font-semibold bg-accent text-xl md:text-2xl py-6 px-7 md:px-8 md:py-7 text-primary rounded-full hover:bg-accent-hover cursor-disabled">Fiverr</Button>
+                    <button className="absolute top-0 left-0"></button>
                 </div>
             </SheetContent>
         </Sheet>
